@@ -16,7 +16,7 @@
          <effect>
             <ImageInput>
                <source>
-                  <Image url="file:res/java_programming.jpg" />
+                  <Image url="file:/E:/JavaGameCapeTown/JavaGame/res/java_programming.jpg" />
                </source>
             </ImageInput>
          </effect>
@@ -33,7 +33,7 @@
       </Text>
       <TextField fx:id="userNameField" layoutX="112.0" layoutY="314.0" prefHeight="40.0" prefWidth="270.0" promptText="USERNAME" />
       <PasswordField layoutX="112.0" layoutY="364.0" prefHeight="40.0" prefWidth="270.0" promptText="PASSWORD" />
-      <Button fx:id="logInButton" layoutX="112.0" layoutY="413.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #12e312;" text="Login" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="logInButton" layoutX="112.0" layoutY="413.0" mnemonicParsing="false" onAction="#onAction" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #12e312;" text="Login" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="AdobeDevanagari-Bold" size="25.0" />
          </font>
