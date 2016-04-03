@@ -6,8 +6,8 @@ import sample.controllers.ScreenController;
 
 public class Main extends Application {
     public static final String TITLE = "Java Quiz";
-    public static final String PATH_HIGHSCORE = "res/sample/dataBase/highScore.txt";
-    public static final String PATH_QUESTIONS = "res/sample/dataBase/questions.txt";
+    public static final String PATH_HIGHSCORE = "res/sample/IO/highScore.txt";
+    public static final String PATH_QUESTIONS = "res/sample/IO/questions.txt";
 
     public static final int NUM_ROUNDS = 5;
 
