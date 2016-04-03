@@ -4,12 +4,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Player {
-    private String name;
-    private String password;
-    private Integer scores;
+    public String Name;
+    public String Password;
+    public Integer Score;
 
     public String getPassword() {
-        return password;
+        return Password;
     }
 
     public void setPassword(String password) throws IllegalArgumentException {
@@ -22,24 +22,24 @@ public class Player {
             throw new IllegalArgumentException("Password must be contain special character");
         }
 
-        this.password = password;
+        this.Password = password;
     }
 
-    public Integer getScores() {
-        return scores;
+    public Integer getScore() {
+        return Score;
     }
 
-    public void setScores(Integer scores) {
-        this.scores = scores;
+    public void setScore(Integer score) {
+        this.Score = score;
     }
 
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.Name = name;
     }
 
     private boolean hasSpecialCharacter(String str) {
@@ -55,7 +55,8 @@ public class Player {
     }
 
     public Player(String name, String password) {
-        this.name = name;
-        this.password = password;
+        this.Name = name;
+        this.Password = password;
+        this.Score = 0;
     }
 }
