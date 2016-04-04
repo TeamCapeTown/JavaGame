@@ -60,8 +60,8 @@ public class Player {
     }
 
     public Player(String name, String password) {
-        setName(name);
-        setName(password);
+        this.Name = name;
+        this.Password = password;
         this.Score = 0;
     }
 }
