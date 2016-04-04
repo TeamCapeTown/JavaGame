@@ -1,4 +1,4 @@
-package sample.Engine;
+package models;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -61,7 +61,7 @@ public class Player {
 
     public Player(String name, String password) {
         setName(name);
-        this.Password = password;
+        setName(password);
         this.Score = 0;
     }
 }

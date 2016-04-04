@@ -2,12 +2,13 @@ package sample.controllers;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import java.io.IOException;
-import javafx.scene.layout.AnchorPane;
-import sample.Engine.Player;
+import models.Player;
 import sample.Main;
+
+import java.io.IOException;
 
 public class ScreenController {
     private static Stage primaryStage;
@@ -46,7 +47,7 @@ public class ScreenController {
         return fxmlLoader.<T>getController();
     }
 
-  public static <T> T loadSceneToSecondaryStage(String fxml) throws IOException {
+    public static <T> T loadSceneToSecondaryStage(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("scenes/" + fxml + ".fxml"));
 
         if (secondaryStage == null) {
@@ -54,7 +55,7 @@ public class ScreenController {
         }
         try {
             gameChoose = FXMLLoader.load(Main.class.getResource("scenes/GameChoose.fxml"));
-            secondaryStage.setScene(new Scene( gameChoose));
+            secondaryStage.setScene(new Scene(gameChoose));
             secondaryStage.setTitle(Main.TITLE);
             primaryStage.close();
         } catch (IOException e) {
