@@ -4,64 +4,57 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Player {
-    public String Name;
-    public String Password;
-    public Integer Score;
+    private String name;
+    private String password;
+    private Integer score;
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
-    public void setPassword(String password) throws IllegalArgumentException {
+    private void setPassword(String password) throws IllegalArgumentException {
 
-        if (password.length() <= 8) {
-            throw new IllegalArgumentException("Password must be more than 8 symbols");
+        if (password.isEmpty()) {
+            throw new IllegalArgumentException("password must be more than 0 symbols");
         }
 
         if (hasSpecialCharacter(password)) {
-            throw new IllegalArgumentException("Password must be contain special character");
+            throw new IllegalArgumentException("password must be contain special character");
         }
 
-        this.Password = password;
+        this.password = password;
     }
 
-    public Integer getScore() {
-        return Score;
+    Integer getScore() {
+        return score;
     }
 
     public void setScore(Integer score) {
-        this.Score = score;
+        this.score = score;
     }
-
 
     public String getName() {
-        return Name;
+        return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
 
-        if (name.length() < 3) {
-            throw new IllegalArgumentException("Name must be more than 3 sumbols !");
+        if (password.isEmpty()) {
+            throw new IllegalArgumentException("password must be more than 0 symbols");
         }
 
-        this.Name = name;
+        this.name = name;
     }
 
     private boolean hasSpecialCharacter(String str) {
-
         Pattern pattern = Pattern.compile("[^A-Za-z0-9]");
         Matcher matcher = pattern.matcher(str);
-
-        if (matcher.find()) {
-            return true;
-        } else {
-            return false;
-        }
+        return matcher.find();
     }
 
     public Player(String name, String password) {
-        this.Name = name;
-        this.Password = password;
-        this.Score = 0;
+        this.setName(name);
+        this.setPassword(password);
+        this.setScore(0);
     }
 }
