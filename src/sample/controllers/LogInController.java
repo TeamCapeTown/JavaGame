@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import sample.Engine.Player;
+import models.Player;
 
 import java.io.IOException;
 import java.net.URL;
@@ -44,7 +44,7 @@ public class LogInController implements Initializable {
                     //ScreenController.showLogin();//TODO
                 } else {
                     try {
-                        Player player = new Player(userNameField.getText(),userPasswordField.getText());
+                        Player player = new Player(userNameField.getText(), userPasswordField.getText());
                     } catch (IllegalArgumentException e) {
                         e.printStackTrace();
                     }
