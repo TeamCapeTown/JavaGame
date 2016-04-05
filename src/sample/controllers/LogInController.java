@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import models.Player;
+import models.PlayersCatalog;
 
 import java.io.IOException;
 import java.net.URL;
@@ -40,19 +41,23 @@ public class LogInController implements Initializable {
         signUpButton.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
             @Override
             public void handle(javafx.event.ActionEvent event) {
-                if (userNameField.getText().isEmpty() || userPasswordField.getText().isEmpty()) {
-                    //ScreenController.showLogin();//TODO
-                } else {
-                    try {
-                        Player player = new Player(userNameField.getText(), userPasswordField.getText());
-                    } catch (IllegalArgumentException e) {
-                        e.printStackTrace();
-                    }
-                    try {
-                        loadSceneToSecondaryStage("GameChoose");
-                    } catch (IOException e) {
-                        System.out.println("Exception from loadSceneToSecondary");
-                    }
+                try {
+
+                    String name = userNameField.getText();
+                    String password = userPasswordField.getText();
+
+                    Player player = new Player(name, password);
+
+                    PlayersCatalog playerCatalog = new PlayersCatalog();
+                    playerCatalog.addPlayer(player);
+
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e);
+                }
+                try {
+                    loadSceneToSecondaryStage("GameChoose");
+                } catch (IOException e) {
+                    System.out.println("Exception from loadSceneToSecondary");
                 }
             }
         });
