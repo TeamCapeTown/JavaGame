@@ -15,7 +15,6 @@ import java.util.ResourceBundle;
 import static sample.controllers.ScreenController.loadSceneToSecondaryStage;
 
 public class LogInController implements Initializable {
-    public Player player;
     @FXML
     public Button logInButton;
     @FXML
