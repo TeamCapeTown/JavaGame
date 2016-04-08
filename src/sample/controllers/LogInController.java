@@ -35,13 +35,13 @@ public class LogInController implements Initializable {
 
                 try {
 
-                    String name = userNameField.getText();
-                    String password = userPasswordField.getText();
-
-                    Player player = new Player(name, password);
-
-                    PlayersCatalog playerCatalog = new PlayersCatalog();
-                    playerCatalog.signIn(player);
+//                    String name = userNameField.getText();
+//                    String password = userPasswordField.getText();
+//
+//                    Player player = new Player(name, password);
+//
+//                    PlayersCatalog playerCatalog = new PlayersCatalog();
+//                    playerCatalog.signIn(player);
 
                     loadSceneToSecondaryStage("GameChoose");
 
@@ -56,13 +56,13 @@ public class LogInController implements Initializable {
             public void handle(javafx.event.ActionEvent event) {
                 try {
 
-                    String name = userNameField.getText();
-                    String password = userPasswordField.getText();
-
-                    Player player = new Player(name, password);
-
-                    PlayersCatalog playerCatalog = new PlayersCatalog();
-                    playerCatalog.signIn(player);
+//                    String name = userNameField.getText();
+//                    String password = userPasswordField.getText();
+//
+//                    Player player = new Player(name, password);
+//
+//                    PlayersCatalog playerCatalog = new PlayersCatalog();
+//                    playerCatalog.logIn(player);
 
                 } catch (IllegalArgumentException e) {
                     System.out.println(e);

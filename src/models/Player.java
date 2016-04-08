@@ -1,5 +1,8 @@
 package models;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Player {
 
     private String Name;
@@ -9,12 +12,6 @@ public class Player {
         this.setName(name);
         this.setPassword(password);
     }
-
-//    private boolean hasSpecialCharacter(String str) {
-//        Pattern pattern = Pattern.compile("[^A-Za-z0-9]");
-//        Matcher matcher = pattern.matcher(str);
-//        return matcher.find();
-//    }
 
     public String getName() {
         return Name;
@@ -29,7 +26,7 @@ public class Player {
         this.Name = name;
     }
 
-    public String getPassword() {
+    private String getPassword() {
         return Password;
     }
 
@@ -39,11 +36,17 @@ public class Player {
             throw new IllegalArgumentException("Password must be more than 0 symbols");
         }
 
-//        if (hasSpecialCharacter(password)) {
-//            throw new IllegalArgumentException("Password must be contain special character");
-//        }
+        if (!hasSpecialCharacter(password)) {
+            throw new IllegalArgumentException("Password must be contain special character");
+        }
 
         this.Password = password;
+    }
+
+    private boolean hasSpecialCharacter(String str) {
+        Pattern pattern = Pattern.compile("[^A-Za-z0-9]");
+        Matcher matcher = pattern.matcher(str);
+        return matcher.find();
     }
 
 }
