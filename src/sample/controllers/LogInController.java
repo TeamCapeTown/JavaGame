@@ -26,17 +26,31 @@ public class LogInController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         logInButton.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
+            PlayersCatalog playerCatalog = new PlayersCatalog();
+
             @Override
             public void handle(javafx.event.ActionEvent event) {
-                //TODO Validation
+
                 try {
+
+                    String name = userNameField.getText();
+                    String password = userPasswordField.getText();
+
+                    Player player = new Player(name, password);
+
+                    PlayersCatalog playerCatalog = new PlayersCatalog();
+                    playerCatalog.signIn(player);
+
                     loadSceneToSecondaryStage("GameChoose");
+
                 } catch (IOException e) {
                     System.out.println("Exception from loadSceneToSecondary");
                 }
             }
         });
+
         signUpButton.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
             @Override
             public void handle(javafx.event.ActionEvent event) {
@@ -48,7 +62,7 @@ public class LogInController implements Initializable {
                     Player player = new Player(name, password);
 
                     PlayersCatalog playerCatalog = new PlayersCatalog();
-                    playerCatalog.addPlayer(player);
+                    playerCatalog.signIn(player);
 
                 } catch (IllegalArgumentException e) {
                     System.out.println(e);
@@ -60,6 +74,7 @@ public class LogInController implements Initializable {
                 }
             }
         });
+
     }/*
 
     @FXML

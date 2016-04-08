@@ -1,42 +1,41 @@
 package models;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-import static java.util.stream.Collectors.toMap;
+import java.util.Collections;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 public class PlayersCatalog {
 
     public PlayersCatalog() {
     }
 
-    private HashMap<String, Integer> listOfPlayers = new HashMap<>();
+    private SortedMap<Integer, String> listOfPlayers = new TreeMap<>((Collections.reverseOrder()));
 
-    HashMap<String, Integer> getListOfPlayers() {
+    SortedMap<Integer, String> getListOfPlayers() {
 
-        HashMap<String, Integer> sortedMap = listOfPlayers.entrySet().stream()
-                .sorted(Map.Entry.comparingByValue())/*.limit(10)*/
-                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue,
-                        (e1, e2) -> e1, LinkedHashMap::new));
-
-//        HashMap<String, Integer> reversedHashMap = new HashMap<>();
-
-        return sortedMap;
+        return listOfPlayers;
     }
 
+    public void signIn(Player player) {
 
-    public void addPlayer(Player player) {
-
-        if (getListOfPlayers().containsKey(player.getName())) {
+        if (getListOfPlayers().containsValue(player.getName())) {
             throw new IllegalArgumentException("User name must be unique.");
         }
 
-        listOfPlayers.put(player.getName(), 0);
+        listOfPlayers.put(0, player.getName());
+    }
+
+    public Player logIn(String name) {
+
+        if (getListOfPlayers().containsValue(name)) {
+            throw new IllegalArgumentException("User is not registered.");
+        }
+
+        Player currentPlayer = listOfPlayers.values(name);
     }
 
     public void setPlayerScore(Player player, Integer score) {
-        listOfPlayers.put(player.getName(), score);
+        listOfPlayers.put(score, player.getName());
     }
 
 }

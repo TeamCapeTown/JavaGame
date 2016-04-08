@@ -4,6 +4,7 @@ public class Test {
 
     public static void main(String[] args) {
         Player pesho = new Player("Pesho", "asdsddddddddd#$");
+        Player atanas = new Player("Atanas", "asdsddddddddd#$");
         Player gosho = new Player("Gosho", "asssssdddddd#$");
         Player ivan = new Player("Ivan", "asssssssssdddddd#$");
         Player tosho = new Player("Tosho", "asssssssssdddddd#$");
@@ -12,24 +13,27 @@ public class Test {
         try {
 
             PlayersCatalog playerCatalog = new PlayersCatalog();
-            playerCatalog.addPlayer(pesho);
+            playerCatalog.signIn(pesho);
             playerCatalog.setPlayerScore(pesho, 1);
             playerCatalog.setPlayerScore(pesho, 10000);
-            playerCatalog.addPlayer(gosho);
+            playerCatalog.signIn(gosho);
 
-//                playerCatalog.addPlayer(gosho);
+//            playerCatalog.signIn(gosho);
 
             playerCatalog.setPlayerScore(gosho, 5);
             playerCatalog.setPlayerScore(gosho, 455);
 
-            playerCatalog.addPlayer(ivan);
+            playerCatalog.signIn(ivan);
             playerCatalog.setPlayerScore(ivan, 20);
 
-            playerCatalog.addPlayer(tosho);
+            playerCatalog.signIn(tosho);
             playerCatalog.setPlayerScore(tosho, 20);
 
-            playerCatalog.addPlayer(minka);
+            playerCatalog.signIn(minka);
             playerCatalog.setPlayerScore(minka, 3);
+
+            playerCatalog.signIn(atanas);
+            playerCatalog.setPlayerScore(atanas, 890);
 
             System.out.println(playerCatalog.getListOfPlayers());
 
