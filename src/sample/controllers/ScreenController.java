@@ -13,8 +13,10 @@ import java.io.IOException;
 public class ScreenController {
     private static Stage primaryStage;
     private static Stage secondaryStage;
+    private static Stage thirdStage;
     private static AnchorPane root;
     private static Pane gameChoose;
+    private static Pane gameMode;
 
     public static void setPrimaryStage(Stage primaryStage) throws IOException {
         primaryStage.setTitle(Main.TITLE);
@@ -57,6 +59,25 @@ public class ScreenController {
         secondaryStage.show();
         return fxmlLoader.<T>getController();
     }
+    /*public static <T> T loadSceneToThirdStage(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("scenes/" + fxml + ".fxml"));
+
+        if (thirdStage == null) {
+            thirdStage = new Stage();
+        }
+        try {
+            gameMode = FXMLLoader.load(Main.class.getResource("scenes/GameMode.fxml"));
+            thirdStage.setScene(new Scene(gameMode));
+            thirdStage.setTitle(Main.TITLE);
+            thirdStage.setResizable(false);
+            secondaryStage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        thirdStage.show();
+        return fxmlLoader.<T>getController();
+    }*/
 
 
     public static void showLogin() {
