@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import models.Player;
 import sample.Main;
@@ -15,14 +16,16 @@ public class ScreenController {
     private static Stage secondaryStage;
     private static Stage thirdStage;
     private static AnchorPane root;
-    private static Pane gameChoose;
-    private static Pane gameMode;
+    private static Pane gameChooseScene;
+    private static Pane quizScene;
+    private static Text txt;
 
     public static void setPrimaryStage(Stage primaryStage) throws IOException {
         primaryStage.setTitle(Main.TITLE);
         root = FXMLLoader.load(Main.class.getResource("scenes/LogIn.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
+        primaryStage.centerOnScreen();
         ScreenController.primaryStage = primaryStage;
     }
 
@@ -47,8 +50,8 @@ public class ScreenController {
             secondaryStage = new Stage();
         }
         try {
-            gameChoose = FXMLLoader.load(Main.class.getResource("scenes/GameChoose.fxml"));
-            secondaryStage.setScene(new Scene(gameChoose));
+            gameChooseScene = FXMLLoader.load(Main.class.getResource("scenes/GameChoose.fxml"));
+            secondaryStage.setScene(new Scene(gameChooseScene));
             secondaryStage.setTitle(Main.TITLE);
             secondaryStage.setResizable(false);
             primaryStage.close();
@@ -59,15 +62,15 @@ public class ScreenController {
         secondaryStage.show();
         return fxmlLoader.<T>getController();
     }
-    /*public static <T> T loadSceneToThirdStage(String fxml) throws IOException {
+    public static <T> T loadSceneToThirdStage(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("scenes/" + fxml + ".fxml"));
 
         if (thirdStage == null) {
             thirdStage = new Stage();
         }
         try {
-            gameMode = FXMLLoader.load(Main.class.getResource("scenes/GameMode.fxml"));
-            thirdStage.setScene(new Scene(gameMode));
+            quizScene = FXMLLoader.load(Main.class.getResource("scenes/QuizSolving.fxml"));
+            thirdStage.setScene(new Scene(quizScene));
             thirdStage.setTitle(Main.TITLE);
             thirdStage.setResizable(false);
             secondaryStage.close();
@@ -77,7 +80,7 @@ public class ScreenController {
 
         thirdStage.show();
         return fxmlLoader.<T>getController();
-    }*/
+    }
 
 
     public static void showLogin() {
