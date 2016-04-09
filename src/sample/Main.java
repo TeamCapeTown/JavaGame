@@ -6,10 +6,6 @@ import sample.controllers.ScreenController;
 
 public class Main extends Application {
     public static final String TITLE = "Java Quiz";
-    public static final String PATH_HIGHSCORE = "res/sample/IO/highScore.txt";
-    public static final String PATH_QUESTIONS = "res/sample/IO/questions.txt";
-
-
 
     @Override
     public void start(Stage primaryStage) throws Exception {

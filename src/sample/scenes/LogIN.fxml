@@ -52,5 +52,14 @@
          <font>
             <Font name="AdobeDevanagari-Bold" size="25.0" />
          </font></Button>
+      <Label layoutX="-89.0" layoutY="541.0" prefHeight="213.0" prefWidth="207.0">
+         <effect>
+            <ImageInput>
+               <source>
+                  <Image url="file:/E:/JavaGameCapeTown/JavaGame/res/PictureRes/Png%60s/java2.png" />
+               </source>
+            </ImageInput>
+         </effect>
+      </Label>
    </children>
 </AnchorPane>

@@ -5,7 +5,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import models.Logger;
 import models.Player;
+import models.PlayersCatalog;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,7 +32,9 @@ public class LogInController implements Initializable {
 
     public void logIn(ActionEvent actionEvent) {
         try {
-            //TODO Player player = Player.get(userNameField.getText());
+            /*Logger logger = new Logger();
+            PlayersCatalog catalog = new PlayersCatalog();
+            Player Player = logger.logIn(userNameField.getText(), userPasswordField.getText(), catalog);*/
             loadSceneToSecondaryStage("GameChoose");
         } catch (IOException e) {
             System.out.println("Exception from loadSceneToSecondary");
@@ -38,6 +43,9 @@ public class LogInController implements Initializable {
 
     public void signUp(ActionEvent actionEvent) {
         try {
+            /*Logger logger = new Logger();
+            PlayersCatalog catalog = new PlayersCatalog();
+            Player Player = logger.signIn(userNameField.getText(), userPasswordField.getText(), catalog);*/
             Player player = new Player(userNameField.getText(),userPasswordField.getText());
             loadSceneToSecondaryStage("GameChoose");
         } catch (IOException e) {

@@ -18,7 +18,7 @@ public class ScreenController {
 
     public static void setPrimaryStage(Stage primaryStage) throws IOException {
         primaryStage.setTitle(Main.TITLE);
-        root = FXMLLoader.load(Main.class.getResource("scenes/LogIN.fxml"));
+        root = FXMLLoader.load(Main.class.getResource("scenes/LogIn.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
         ScreenController.primaryStage = primaryStage;
@@ -28,7 +28,7 @@ public class ScreenController {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("scenes/" + fxml + ".fxml"));
 
         try {
-            root = FXMLLoader.load(Main.class.getResource("scenes/LogIN.fxml"));
+            root = FXMLLoader.load(Main.class.getResource("scenes/LogIn.fxml"));
             primaryStage.setScene(new Scene(root));
         } catch (IOException e) {
             e.printStackTrace();
