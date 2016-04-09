@@ -22,16 +22,7 @@ public class ScreenController {
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
         ScreenController.primaryStage = primaryStage;
-    }/*
-    public static void setSecondaryStage(Stage secondaryStage) throws IOException {
-        secondaryStage.setTitle(Main.TITLE);
-        gameChoose = FXMLLoader.load(Main.class.getResource("scenes/GameChoose.fxml"));
-        secondaryStage.setScene(new Scene(gameChoose));
-        secondaryStage.setResizable(false);
-        ScreenController.primaryStage = secondaryStage;
-        secondaryStage.close();
-    }*/
-
+    }
 
     public static <T> T loadSceneToPrimaryStage(String fxml) {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("scenes/" + fxml + ".fxml"));

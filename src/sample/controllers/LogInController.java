@@ -55,19 +55,6 @@ public class LogInController implements Initializable {
             @Override
             public void handle(javafx.event.ActionEvent event) {
                 try {
-
-//                    String name = userNameField.getText();
-//                    String password = userPasswordField.getText();
-//
-//                    Player player = new Player(name, password);
-//
-//                    PlayersCatalog playerCatalog = new PlayersCatalog();
-//                    playerCatalog.logIn(player);
-
-                } catch (IllegalArgumentException e) {
-                    System.out.println(e);
-                }
-                try {
                     loadSceneToSecondaryStage("GameChoose");
                 } catch (IOException e) {
                     System.out.println("Exception from loadSceneToSecondary");
@@ -75,11 +62,5 @@ public class LogInController implements Initializable {
             }
         });
 
-    }/*
-
-    @FXML
-    void logInHandler() throws IllegalArgumentException {
-        Player player = new Player(userNameField.getText(), userPasswordField.getText());
-        ScreenController.showGame(player);
-    }*/
+    }
 }

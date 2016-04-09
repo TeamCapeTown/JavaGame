@@ -16,4 +16,8 @@ public class Main extends Application {
         ScreenController.setPrimaryStage(primaryStage);
         ScreenController.showLogin();
     }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 }
