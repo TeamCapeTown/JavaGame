@@ -4,46 +4,43 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Player {
-    private String name;
-    private String password;
-    private Integer score;
 
-    public String getPassword() {
-        return password;
+    private String Name;
+    private String Password;
+
+    public Player(String name, String password) {
+        this.setName(name);
+        this.setPassword(password);
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    private void setName(String name) {
+
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException("Password must be more than 0 symbols");
+        }
+
+        this.Name = name;
+    }
+
+    private String getPassword() {
+        return Password;
     }
 
     private void setPassword(String password) throws IllegalArgumentException {
 
         if (password.isEmpty()) {
-            throw new IllegalArgumentException("password must be more than 0 symbols");
+            throw new IllegalArgumentException("Password must be more than 0 symbols");
         }
 
-        if (hasSpecialCharacter(password)) {
-            throw new IllegalArgumentException("password must be contain special character");
+        if (!hasSpecialCharacter(password)) {
+            throw new IllegalArgumentException("Password must be contain special character");
         }
 
-        this.password = password;
-    }
-
-    Integer getScore() {
-        return score;
-    }
-
-    public void setScore(Integer score) {
-        this.score = score;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    private void setName(String name) {
-
-        if (password.isEmpty()) {
-            throw new IllegalArgumentException("password must be more than 0 symbols");
-        }
-
-        this.name = name;
+        this.Password = password;
     }
 
     private boolean hasSpecialCharacter(String str) {
@@ -52,9 +49,4 @@ public class Player {
         return matcher.find();
     }
 
-    public Player(String name, String password) {
-        this.setName(name);
-        this.setPassword(password);
-        this.setScore(0);
-    }
 }

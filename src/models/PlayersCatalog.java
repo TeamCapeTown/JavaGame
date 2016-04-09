@@ -1,20 +1,29 @@
 package models;
 
-import java.util.Hashtable;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 public class PlayersCatalog {
 
-    private Hashtable listOfPlayers = new Hashtable();
+    public PlayersCatalog() {
+    }
 
-    public Hashtable getListOfPlayers() {
+    private SortedMap<Player, Integer> listOfPlayers = new TreeMap<>();
+
+    SortedMap<Player, Integer> getListOfPlayers() {
+
         return listOfPlayers;
     }
 
     public void addPlayer(Player player) {
         if (listOfPlayers.containsKey(player.getName())) {
-            throw new IllegalArgumentException("User name must be unique.");
+            throw new IllegalArgumentException("Player name must be unique.");
         }
-
-        listOfPlayers.put(player.getName(), player.getScore());
+        listOfPlayers.put(player, 0);
     }
+
+    public void setPlayerScore(Player player, Integer score) {
+        listOfPlayers.put(player, score);
+    }
+
 }
