@@ -16,7 +16,7 @@ public class Test {
             catalog.setPlayerScore(pesho1, 10000);
 
 //            Player asd = new Player();
-//            pesho.signIn("Peshoа", "asdsddddddddd#$");
+//            pesho.signUp("Peshoа", "asdsddddddddd#$");
 //            playerCatalog.setPlayerScore(asd, 1);
 //            playerCatalog.setPlayerScore(asd, 500);
 //            pesho.logIn(asd);

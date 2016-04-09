@@ -3,7 +3,7 @@ package models;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-public class PlayersCatalog {
+public class PlayersCatalog { //TODO get Player when logIn
 
     public PlayersCatalog() {
     }

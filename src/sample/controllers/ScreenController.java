@@ -48,6 +48,7 @@ public class ScreenController {
             gameChoose = FXMLLoader.load(Main.class.getResource("scenes/GameChoose.fxml"));
             secondaryStage.setScene(new Scene(gameChoose));
             secondaryStage.setTitle(Main.TITLE);
+            secondaryStage.setResizable(false);
             primaryStage.close();
         } catch (IOException e) {
             e.printStackTrace();
