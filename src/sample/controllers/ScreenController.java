@@ -18,7 +18,6 @@ public class ScreenController {
     private static AnchorPane root;
     private static Pane gameChooseScene;
     private static Pane quizScene;
-    private static Text txt;
 
     public static void setPrimaryStage(Stage primaryStage) throws IOException {
         primaryStage.setTitle(Main.TITLE);
@@ -85,17 +84,5 @@ public class ScreenController {
 
     public static void showLogin() {
         loadSceneToPrimaryStage("LoginScreen");
-    }
-
-
-    public static void showGame(Player player) {/*
-        GameController gameController = loadSceneToPrimaryStage("Game");
-        gameController.initPlayer(player);*/
-    }
-
-    public static void showHighscore(Player player) {
-      /*  HighscoreController highscoreController = loadSceneToSecondaryStage("Highscore");
-        highscoreController.initPlayer(player);
-        highscoreController.initHighscore(secondaryStage.getScene().getRoot());*/
     }
 }

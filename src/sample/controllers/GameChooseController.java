@@ -14,8 +14,8 @@ import static sample.controllers.ScreenController.loadSceneToThirdStage;
 
 public class GameChooseController implements Initializable {
 
-    String quizChoose = "";
-    String gameType = "";
+    private String quizChoose = "";
+    private String gameType = "";
 
     @FXML
     public Button javaBasicQuiz;
@@ -88,13 +88,5 @@ public class GameChooseController implements Initializable {
 
     public void selectChallengeGame(ActionEvent actionEvent) {
         gameType = "challenge";
-    }
-
-    public String getQuizChoose() {
-        return quizChoose;
-    }
-
-    public String getGameType() {
-        return gameType;
     }
 }

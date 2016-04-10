@@ -1,11 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ImageInput?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<Pane fx:id="quiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.GameController">
+<Pane fx:id="quiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.QuestionsController">
    <children>
-      <Text fx:id="text1" layoutX="100.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="117.6708984375" />
-      <Text fx:id="text2" layoutX="100.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="71.6708984375" />
+      <Label prefHeight="788.0" prefWidth="1044.0">
+         <effect>
+            <ImageInput>
+               <source>
+                  <Image url="file:/E:/JavaGameCapeTown/JavaGame/res/PictureRes/Background/images.jpg" />
+               </source>
+            </ImageInput>
+         </effect>
+      </Label>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#fffcfc66" height="400.0" layoutX="22.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="980.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#fffcfc66" height="100.0" layoutX="29.0" layoutY="493.0" stroke="BLACK" strokeType="INSIDE" width="460.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#fffcfc66" height="100.0" layoutX="527.0" layoutY="494.0" stroke="BLACK" strokeType="INSIDE" width="460.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#fffcfc66" height="100.0" layoutX="29.0" layoutY="603.0" stroke="BLACK" strokeType="INSIDE" width="460.0" />
+      <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#fffcfc66" height="100.0" layoutX="527.0" layoutY="603.0" stroke="BLACK" strokeType="INSIDE" width="460.0" />
+      <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="14.0" prefHeight="400.0" prefWidth="965.0" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="20.0" />
+         </font></Label>
+      <Label fx:id="answerA" layoutX="29.0" layoutY="494.0" prefHeight="100.0" prefWidth="460.0" />
+      <Label fx:id="answerB" layoutX="29.0" layoutY="603.0" prefHeight="100.0" prefWidth="460.0" />
+      <Label fx:id="answerC" layoutX="527.0" layoutY="494.0" prefHeight="100.0" prefWidth="460.0" />
+      <Label fx:id="answerD" layoutX="527.0" layoutY="603.0" prefHeight="100.0" prefWidth="460.0" />
+      <Button fx:id="answerButtonA" alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="494.0" mnemonicParsing="false" onAction="#isPressed" prefHeight="100.0" prefWidth="460.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="answerButtonB" layoutX="29.0" layoutY="603.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="460.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="answerButtonC" layoutX="527.0" layoutY="494.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="460.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="answerButtonD" layoutX="527.0" layoutY="603.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="460.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="startButton" layoutX="383.0" layoutY="269.0" mnemonicParsing="false" onAction="#Start" prefHeight="250.0" prefWidth="258.0">
+         <effect>
+            <ImageInput>
+               <source>
+                  <Image url="file:/E:/JavaGameCapeTown/JavaGame/res/PictureRes/Png%60s/PLayGame.png" />
+               </source>
+            </ImageInput>
+         </effect></Button>
    </children>
 </Pane>
