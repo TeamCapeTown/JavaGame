@@ -9,19 +9,23 @@ public class Test {
 
             Logger logger = new Logger();
             PlayersCatalog catalog = new PlayersCatalog();
-            Player pesho1 = logger.signIn("Pesho", "asdsddddddddd#_$", catalog);
-            Player pesho2 = logger.logIn("Pesho", "asdsddddddddd#_$", catalog);
+            Player ivan = logger.signIn("Ivan", "asdsddddddddd#_$", catalog);
+            Player pesho = logger.logIn("Pesho", "asdsddddddddd#_$", catalog);
+            Player haralampi = logger.signIn("Haralampi", "asdsddddddddd#_$", catalog);
 
-            catalog.setPlayerScore(pesho1, 1);
-            catalog.setPlayerScore(pesho1, 10000);
+            RankList rankList = new RankList();
 
-//            Player asd = new Player();
-//            pesho.signUp("Peshoа", "asdsddddddddd#$");
-//            playerCatalog.setPlayerScore(asd, 1);
-//            playerCatalog.setPlayerScore(asd, 500);
-//            pesho.logIn(asd);
+            rankList.addPlayer(ivan);
+            rankList.addScore(ivan, 10000);
+            rankList.displayList();
 
-            System.out.println(catalog.getListOfPlayers());
+            rankList.addPlayer(pesho);
+            rankList.addScore(pesho, 90);
+
+            rankList.addPlayer(haralampi);
+            rankList.addScore(haralampi, 89);
+
+            System.out.println(rankList.displayList());
 
         } catch (IllegalArgumentException e) {
             System.out.println(e);

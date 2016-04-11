@@ -17,7 +17,7 @@ public class Player {
         return Name;
     }
 
-    private void setName(String name) {
+    public void setName(String name) {
 
         if (name.isEmpty()) {
             throw new IllegalArgumentException("Password must be more than 0 symbols");
@@ -26,11 +26,11 @@ public class Player {
         this.Name = name;
     }
 
-    private String getPassword() {
+    public String getPassword() {
         return Password;
     }
 
-    private void setPassword(String password) throws IllegalArgumentException {
+    public void setPassword(String password) throws IllegalArgumentException {
 
         if (password.isEmpty()) {
             throw new IllegalArgumentException("Password must be more than 0 symbols");
