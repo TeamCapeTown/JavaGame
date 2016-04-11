@@ -1,42 +1,29 @@
 package models;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
-import static java.util.stream.Collectors.toMap;
-
-public class PlayersCatalog {
+public class PlayersCatalog { //TODO get Player when logIn
 
     public PlayersCatalog() {
     }
 
-    private HashMap<String, Integer> listOfPlayers = new HashMap<>();
+    private SortedMap<Player, Integer> listOfPlayers = new TreeMap<>();
 
-    HashMap<String, Integer> getListOfPlayers() {
+    SortedMap<Player, Integer> getListOfPlayers() {
 
-        HashMap<String, Integer> sortedMap = listOfPlayers.entrySet().stream()
-                .sorted(Map.Entry.comparingByValue())/*.limit(10)*/
-                .collect(toMap(Map.Entry::getKey, Map.Entry::getValue,
-                        (e1, e2) -> e1, LinkedHashMap::new));
-
-//        HashMap<String, Integer> reversedHashMap = new HashMap<>();
-
-        return sortedMap;
+        return listOfPlayers;
     }
 
-
     public void addPlayer(Player player) {
-
-        if (getListOfPlayers().containsKey(player.getName())) {
-            throw new IllegalArgumentException("User name must be unique.");
+        if (listOfPlayers.containsKey(player.getName())) {
+            throw new IllegalArgumentException("Player name must be unique.");
         }
-
-        listOfPlayers.put(player.getName(), 0);
+        listOfPlayers.put(player, 0);
     }
 
     public void setPlayerScore(Player player, Integer score) {
-        listOfPlayers.put(player.getName(), score);
+        listOfPlayers.put(player, score);
     }
 
 }
