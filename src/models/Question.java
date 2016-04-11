@@ -1,41 +1,40 @@
 package models;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Question {
-    private final String QUESTION;
-    private final List<String> ANSWERS;
+    private String QUESTION;
+    private List<String> ANSWERS;
     private boolean CheckCorrectAnswer;
-    private String correctAnswerIndex;
+    private int correctAnswerIndex;
 
-    public Question(String question) { //Конструктор за въпросния обект, който съдържа само въпроса и празен списък с възможни отговори .
-        QUESTION = question;
-        ANSWERS = new ArrayList<>(4);// ще има четири възможни отговора. Тук ли да се посочи сорса с въпросите?
-        CheckCorrectAnswer = false; // ще има проверка дали отговора е верен и ако да - тогава Boolean=true
+    public String getQUESTION() {
+        return this.QUESTION;
     }
 
-    public Question(String question, List<String> answers, boolean CheckCorrectAnswer) {
-        this.QUESTION = question;
-        this.ANSWERS = answers;
-        this.CheckCorrectAnswer = CheckCorrectAnswer;
-    }
-
-    public String getQUESTION() { //връща въпроса като стринг, тук ли да се зададе от къде ще се вземат въпросите?
-
-        return QUESTION;
-    }
-
-
-    public List<String> getAnswers() {
+    public List<String> getANSWERS() {
         return ANSWERS;
     }
 
-    public boolean CheckCorrectAnswer(String answer) {
-        if (answer.equals(ANSWERS.get(5))) {// 0-въпрос, 1,2,3,4 - отговори, 5 - правилен отговор
-            CheckCorrectAnswer = true;
+    public String readingQuestionsAndAnswers() {
+        StringBuilder read = new StringBuilder();
+        read.append(QUESTION);
+        read.append(" ");
+
+        for (int i = 0; i < ANSWERS.size(); i++) {
+            read.append(ANSWERS.get(i));
+            if (i == correctAnswerIndex) { //ако се достигне индекса на верния отговор(отговорът винаги е последен), да се продължава нататък. Верния отговор е на последна позиция винаги
+                break;
+            }
         }
-        return true;
+        return read.toString();
+    }
+
+    public boolean CheckCorrectAnswer(String answer) { //проверява дали избрания стринг отговаря на текста от последната позиция в листата с отговорите
+        if (answer.equals(ANSWERS.get(correctAnswerIndex))) {
+            return true;
+        }
+        return false;
     }
 }
 
