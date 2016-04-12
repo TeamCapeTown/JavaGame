@@ -3,27 +3,28 @@ package models;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-public class PlayersCatalog { //TODO get Player when logIn
+public class PlayersCatalog {
+
+    private SortedMap<String, String> playersCatalog = new TreeMap<>();
 
     public PlayersCatalog() {
     }
 
-    private SortedMap<Player, Integer> listOfPlayers = new TreeMap<>();
+    public Player addNewPlayer(String name, String password) {
 
-    SortedMap<Player, Integer> getListOfPlayers() {
-
-        return listOfPlayers;
-    }
-
-    public void addPlayer(Player player) {
-        if (listOfPlayers.containsKey(player.getName())) {
-            throw new IllegalArgumentException("Player name must be unique.");
+        //// TODO: 12.04.2016 г. Validation for existing Player
+        if (playersCatalog.containsKey(name)) {
+            throw new IllegalArgumentException("Player name must be unique");
         }
-        listOfPlayers.put(player, 0);
+
+        Player player = new Player(name, password);
+        return player;
     }
 
-    public void setPlayerScore(Player player, Integer score) {
-        listOfPlayers.put(player, score);
-    }
+    public Player getExistingPlayer(String name, String password) {
 
+        // TODO: 12.04.2016 г. validation for existing player
+        Player player = new Player(name, password);
+        return player;
+    }
 }

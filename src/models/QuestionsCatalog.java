@@ -1,22 +1,25 @@
 package models;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class QuestionsCatalog {
 
     public class QuestionCatalog {
 
-        private final Map<String, List<Question>> catalog;
+        private  Map<String, List<Question>> catalog;
+        private String Category;
 
         public QuestionCatalog() {
-            catalog = new HashMap<>();//TODO да се покаже от къде ще се взема въпросите
+            catalog = new HashMap<>();//да се покаже от къде ще се взема въпросите
         }
-//TODO да се добави рандом теглене на въпрос от дадената категория и в един файл ли да бъдат всички въпроси за категориите
-//TODO да се добави листа с възможност за избор на категория
+        public String Category(){
+            return this.Category;
+        }
 
+        public Question getRandomQuestion(String category) { //произволно изтеглен въпрос от дадена категория
+            Random random = new Random();
+            return (Question) catalog.remove(random.nextInt(catalog.size()));
+        }
     }
 }
 
