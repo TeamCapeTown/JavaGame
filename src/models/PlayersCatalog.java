@@ -10,7 +10,6 @@ public class PlayersCatalog {
     private TreeMap<String, String> playersCatalog = new TreeMap<>();
 
     public PlayersCatalog() {
-
         this.playersCatalog = PlayerCatalogIO.LoadPlayers();
     }
 

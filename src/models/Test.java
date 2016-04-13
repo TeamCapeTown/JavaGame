@@ -23,6 +23,7 @@ public class Test {
             rankList.addScorePoint(haralampi);
             rankList.addScorePoint(haralampi);
             rankList.addScorePoint(haralampi);
+            rankList.writeRankList();
             rankList.displayList();
 
             System.out.println(rankList.displayList());
