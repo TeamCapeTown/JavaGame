@@ -1,18 +1,21 @@
 package models;
 
-import java.util.SortedMap;
+import io.PlayerCatalogIO;
+
+import java.util.Objects;
 import java.util.TreeMap;
 
 public class PlayersCatalog {
 
-    private SortedMap<String, String> playersCatalog = new TreeMap<>();
+    private TreeMap<String, String> playersCatalog = new TreeMap<>();
 
     public PlayersCatalog() {
+
+        this.playersCatalog = PlayerCatalogIO.LoadPlayers();
     }
 
     public Player addNewPlayer(String name, String password) {
 
-        //// TODO: 12.04.2016 г. Validation for existing Player
         if (playersCatalog.containsKey(name)) {
             throw new IllegalArgumentException("Player name must be unique");
         }
@@ -23,8 +26,17 @@ public class PlayersCatalog {
 
     public Player getExistingPlayer(String name, String password) {
 
-        // TODO: 12.04.2016 г. validation for existing player
+        if (!playersCatalog.containsKey(name)) {
+            throw new IllegalArgumentException("Player do not exist");
+        }
+
+        if (!Objects.equals(playersCatalog.get(name), password)) {
+            throw new IllegalArgumentException("Password is not correct");
+        }
+
         Player player = new Player(name, password);
         return player;
     }
 }
+
+

@@ -8,22 +8,22 @@ public class Test {
         try {
 
             Logger logger = new Logger();
-            PlayersCatalog catalog = new PlayersCatalog();
-            Player ivan = logger.signIn("Ivan", "asdsddddddddd#_$", catalog);
-            Player pesho = logger.logIn("Pesho", "asdsddddddddd#_$", catalog);
-            Player haralampi = logger.signIn("Haralampi", "asdsddddddddd#_$", catalog);
-
             RankList rankList = new RankList();
 
-            rankList.addPlayer(ivan);
-            rankList.addScore(ivan, 10000);
+            Player atanas = logger.signIn("Atanas", "asdsddddddddd#_$");
+            Player pesho = logger.logIn("Pesho", "asdsddddddddd#_$");
+            Player haralampi = logger.signIn("Haralampi", "asdsddddddddd#_$");
+
+            rankList.addScorePoint(atanas);
+            rankList.addScorePoint(atanas);
+            rankList.addScorePoint(pesho);
+            rankList.addScorePoint(pesho);
+            rankList.addScorePoint(pesho);
+            rankList.addScorePoint(pesho);
+            rankList.addScorePoint(haralampi);
+            rankList.addScorePoint(haralampi);
+            rankList.addScorePoint(haralampi);
             rankList.displayList();
-
-            rankList.addPlayer(pesho);
-            rankList.addScore(pesho, 90);
-
-            rankList.addPlayer(haralampi);
-            rankList.addScore(haralampi, 89);
 
             System.out.println(rankList.displayList());
 

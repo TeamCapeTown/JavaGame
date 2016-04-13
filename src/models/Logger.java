@@ -2,11 +2,21 @@ package models;
 
 public class Logger {
 
-    public Player signIn(String name, String password, PlayersCatalog catalog) {
-        return catalog.addNewPlayer(name, password);
+    private PlayersCatalog playersCatalog;
+
+    public Logger() {
+        this.playersCatalog = new PlayersCatalog();
     }
 
-    public Player logIn(String name, String password, PlayersCatalog catalog) {
-        return catalog.getExistingPlayer(name, password);
+    public Player signIn(String name, String password) {
+        return this.getPlayersCatalog().addNewPlayer(name, password);
+    }
+
+    public Player logIn(String name, String password) {
+        return this.getPlayersCatalog().getExistingPlayer(name, password);
+    }
+
+    public PlayersCatalog getPlayersCatalog() {
+        return playersCatalog;
     }
 }
