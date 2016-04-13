@@ -8,12 +8,12 @@ public class Test {
         try {
 
             Logger logger = new Logger();
-            RankList rankList = new RankList();
 
             Player atanas = logger.signIn("Atanas", "asdsddddddddd#_$");
             Player pesho = logger.logIn("Pesho", "asdsddddddddd#_$");
             Player haralampi = logger.signIn("Haralampi", "asdsddddddddd#_$");
 
+            RankList rankList = new RankList();
             rankList.addScorePoint(atanas);
             rankList.addScorePoint(atanas);
             rankList.addScorePoint(pesho);
