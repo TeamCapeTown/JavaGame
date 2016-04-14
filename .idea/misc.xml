@@ -41,6 +41,7 @@
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
+<<<<<<< HEAD
   <component name="IdProvider" IDEtalkID="4A3704449E759FCCE9138CABCD24A943" />
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -49,6 +50,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+=======
+  <component name="IdProvider" IDEtalkID="3DA5704898F474F74FD607B59CB9AFA5" />
+>>>>>>> 8d5698c2d0e3a898848cf5a5a55fb4ba6211a3ab
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />

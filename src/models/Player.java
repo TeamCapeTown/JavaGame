@@ -20,7 +20,7 @@ public class Player {
     public void setName(String name) {
 
         if (name.isEmpty()) {
-            throw new IllegalArgumentException("Password must be more than 0 symbols");
+            throw new IllegalArgumentException("Name must be more than 0 symbols");
         }
 
         this.Name = name;
@@ -36,9 +36,9 @@ public class Player {
             throw new IllegalArgumentException("Password must be more than 0 symbols");
         }
 
-        if (!hasSpecialCharacter(password)) {
-            throw new IllegalArgumentException("Password must be contain special character");
-        }
+//        if (!hasSpecialCharacter(password)) {
+//            throw new IllegalArgumentException("Password must be contain special character");
+//        }
 
         this.Password = password;
     }
