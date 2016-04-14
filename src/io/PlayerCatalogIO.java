@@ -6,9 +6,9 @@ import models.Player;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeMap;
 
 public class PlayerCatalogIO {
 
@@ -73,6 +73,7 @@ public class PlayerCatalogIO {
         }
         return playerPasswords;
     }
+
     public List<String> getScores() {
         List<String> playerScores = new ArrayList<String>();
         try {
@@ -86,6 +87,10 @@ public class PlayerCatalogIO {
 
         }
         return playerScores;
+    }
+
+    public static TreeMap<String, String> LoadPlayers() {
+        return null;
     }
 }
 

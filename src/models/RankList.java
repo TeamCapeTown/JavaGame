@@ -1,27 +1,39 @@
 package models;
 
+import io.RankListIO;
+
+import java.util.Comparator;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-public class RankList { //TODO get Player when logIn
+public class RankList {
+
+    private TreeMap<String, Integer> listOfPlayers = new TreeMap<>();
 
     public RankList() {
+        this.listOfPlayers = RankListIO.LoadRankList();
+
     }
 
-    private SortedMap<Integer, String> listOfPlayers = new TreeMap<>();
-
-    SortedMap<Integer, String> displayList() {
-        // TODO: 12.0.2016 г. Show only unique players
-        return listOfPlayers;
+    public void writeRankList() {
+        RankListIO.WriteRankList(this.listOfPlayers);
     }
 
-    public void addPlayer(Player player) {
-
-        listOfPlayers.put(0, player.getName());
+    SortedMap<String, Integer> displayList() {
+        Comparator<String> comparator = new ValueComparator(this.listOfPlayers);
+        TreeMap<String, Integer> result = new TreeMap<>(comparator);
+        result.putAll(this.listOfPlayers);
+        return result;
     }
 
-    public void addScore(Player player, Integer score) {
-        listOfPlayers.put(score, player.getName());
-    }
+    public void addScorePoint(Player player) {
+        if (!listOfPlayers.containsKey(player.getName())) {
+            listOfPlayers.put(player.getName(), 0);
+        }
 
+        Integer score = listOfPlayers.get(player.getName());
+        score++;
+        listOfPlayers.put(player.getName(), score);
+    }
 }
+
