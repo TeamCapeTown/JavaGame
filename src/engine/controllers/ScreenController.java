@@ -1,13 +1,11 @@
-package sample.controllers;
+package engine.controllers;
 
+import engine.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import models.Player;
-import sample.Main;
 
 import java.io.IOException;
 
@@ -84,5 +82,8 @@ public class ScreenController {
 
     public static void showLogin() {
         loadSceneToPrimaryStage("LoginScreen");
+    }
+    public static void showGame() throws IOException {
+        GameController gameController = loadSceneToThirdStage("QuizSolving");
     }
 }

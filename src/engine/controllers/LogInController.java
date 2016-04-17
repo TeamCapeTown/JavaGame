@@ -1,17 +1,16 @@
-package sample.controllers;
+package engine.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import models.Player;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static sample.controllers.ScreenController.loadSceneToSecondaryStage;
+import static engine.controllers.ScreenController.loadSceneToSecondaryStage;
 
 public class LogInController implements Initializable {
 
@@ -33,7 +32,7 @@ public class LogInController implements Initializable {
         try {
             /*Logger logger = new Logger();
             PlayersCatalog catalog = new PlayersCatalog();
-            Player Player = logger.logIn(userNameField.getText(), userPasswordField.getText(), catalog);*/
+            Player player = new(userNameField.getText(), userPasswordField.getText(), catalog);*/
             loadSceneToSecondaryStage("GameChoose");
         } catch (IOException e) {
             System.out.println("Exception from loadSceneToSecondary");
@@ -44,8 +43,8 @@ public class LogInController implements Initializable {
         try {
             /*Logger logger = new Logger();
             PlayersCatalog catalog = new PlayersCatalog();
-            Player Player = logger.signIn(userNameField.getText(), userPasswordField.getText(), catalog);*/
-            Player player = new Player(userNameField.getText(),userPasswordField.getText());
+            Player Player = logger.signIn(userNameField.getText(), userPasswordField.getText(), catalog);
+            Player player = new Player(userNameField.getText(),userPasswordField.getText());*/
             loadSceneToSecondaryStage("GameChoose");
         } catch (IOException e) {
             System.out.println("Exception from loadSceneToSecondary");

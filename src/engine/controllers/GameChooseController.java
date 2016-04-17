@@ -1,4 +1,4 @@
-package sample.controllers;
+package engine.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -6,16 +6,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import models.Player;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import static sample.controllers.ScreenController.loadSceneToThirdStage;
 
 public class GameChooseController implements Initializable {
 
     private String quizChoose = "";
     private String gameType = "";
+    public Player player;
 
     @FXML
     public Button javaBasicQuiz;
@@ -83,10 +84,11 @@ public class GameChooseController implements Initializable {
 
     public void selectSingleGame(ActionEvent actionEvent) throws IOException {
         gameType = "single";
-        loadSceneToThirdStage("QuizSolving");
+        ScreenController.showGame();
     }
 
-    public void selectChallengeGame(ActionEvent actionEvent) {
+    public void selectChallengeGame(ActionEvent actionEvent) throws IOException {
         gameType = "challenge";
+        ScreenController.showGame();
     }
 }

@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="quiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.QuestionsController">
+<Pane fx:id="quiz" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="engine.controllers.GameController">
    <children>
       <Label prefHeight="788.0" prefWidth="1044.0">
          <effect>
@@ -32,10 +32,10 @@
       <Label fx:id="answerB" layoutX="29.0" layoutY="603.0" prefHeight="100.0" prefWidth="460.0" />
       <Label fx:id="answerC" layoutX="527.0" layoutY="494.0" prefHeight="100.0" prefWidth="460.0" />
       <Label fx:id="answerD" layoutX="527.0" layoutY="603.0" prefHeight="100.0" prefWidth="460.0" />
-      <Button fx:id="answerButtonA" alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="494.0" mnemonicParsing="false" onAction="#isPressed" prefHeight="100.0" prefWidth="460.0" style="-fx-background-color: transparent;" />
-      <Button fx:id="answerButtonB" layoutX="29.0" layoutY="603.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="460.0" style="-fx-background-color: transparent;" />
-      <Button fx:id="answerButtonC" layoutX="527.0" layoutY="494.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="460.0" style="-fx-background-color: transparent;" />
-      <Button fx:id="answerButtonD" layoutX="527.0" layoutY="603.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="460.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="answerAButton" alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="494.0" mnemonicParsing="false" onAction="#chooseAnswerHandler" prefHeight="100.0" prefWidth="460.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="answerBButton" layoutX="29.0" layoutY="603.0" mnemonicParsing="false" onAction="#chooseAnswerHandler" prefHeight="100.0" prefWidth="460.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="answerCButton" layoutX="527.0" layoutY="494.0" mnemonicParsing="false" onAction="#chooseAnswerHandler" prefHeight="100.0" prefWidth="460.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="answerDButton" layoutX="527.0" layoutY="603.0" mnemonicParsing="false" onAction="#chooseAnswerHandler" prefHeight="100.0" prefWidth="460.0" style="-fx-background-color: transparent;" />
       <Button fx:id="startButton" layoutX="383.0" layoutY="269.0" mnemonicParsing="false" onAction="#Start" prefHeight="250.0" prefWidth="258.0">
          <effect>
             <ImageInput>
