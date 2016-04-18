@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 import models.Game;
 import models.Question;
@@ -56,7 +55,7 @@ public class GameController implements Initializable {
 
     @FXML
     public void chooseAnswerHandler(ActionEvent event) {
-        if (!game.isFinished() && !isAnswerChoosen) {
+       /* if (!game.isFinished() && !isAnswerChoosen) {
             Question question = game.getCurrentQuestion();
 
             boolean isRight = game.chooseAnswer(((Button) event.getSource()).getText());
@@ -67,16 +66,18 @@ public class GameController implements Initializable {
                     answerButton.setStyle("-fx-background-color:#7fff00");
             }
             if (!isRight)
-                ((Button) event.getSource()).setStyle("-fx-background-color:#dc143c");
-
+                ((Button) event.getSource()).setStyle("-fx-background-color:#dc143c");*/
+        ((Button) event.getSource()).setStyle("-fx-background-color:#dc143c");//TODO delete this
+        for (Button answerButton : answerButtons) {
+            answerButton.setStyle("-fx-background-color:#7fff00");//TODO only for check
+        }
             Timeline timeline = new Timeline(new KeyFrame(
-                    Duration.millis(2000),
+                    Duration.millis(2500),
                     e -> {
                         for (Button answerButton : answerButtons) {
                             answerButton.setStyle("");
                         }
                         isAnswerChoosen = false;
-                        //Start
 
                         if (game.isFinished()) {
                             disableAnswerButtons(true);
@@ -85,7 +86,7 @@ public class GameController implements Initializable {
             timeline.play();
         }
 
-    }
+    //}
 
     private void disableAnswerButtons(boolean value) {
         for (Button answerButton : answerButtons) {
@@ -95,17 +96,19 @@ public class GameController implements Initializable {
 
     public void Start(ActionEvent actionEvent) throws InterruptedException {
         startButton.setVisible(false);
-        question.setText("VUPROSSSSSS"/*game.getCurrentQuestion().getQUESTION()*/);
+        Question qustion = new Question();
+        question.setText("TEEEEESSSSSTTTT"/*qustion.getQUESTION()*/);
 
         Collections.shuffle(answerButtons);
-        for (int i = 0; i < answerButtons.size() /*game.getCurrentQuestion().getANSWERS().size()*/; i++) {
-            answerButtons.get(i).setText("Proba"/*game.getCurrentQuestion().getANSWERS().get(i)*/);
-        }
+        answerButtons.get(0).setText("Proba");
+        answerButtons.get(1).setText("proba");
+        answerButtons.get(2).setText("proba");
+        answerButtons.get(3).setText("proba");
     }
 
-    public void isPressed(ActionEvent actionEvent) {
+    /*public void isPressed(ActionEvent actionEvent) {
         question.setText("NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS ");
         question.setTextAlignment(TextAlignment.CENTER);
         question.wrapTextProperty().setValue(true);
-    }
+    }*/
 }
