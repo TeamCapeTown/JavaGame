@@ -8,11 +8,11 @@ public class Player {
     private String Name;
     private String Password;
 
-    public int getPlayerScore() {
+    public Integer getPlayerScore() {
         return PlayerScore;
     }
 
-    public void setPlayerScore(int playerScore) {
+    public void setPlayerScore(Integer playerScore) {
         PlayerScore = playerScore;
     }
 

@@ -17,8 +17,8 @@ import static engine.controllers.ScreenController.loadSceneToThirdStage;
 public class GameChooseController implements Initializable {
 
     public static String quizChoose = "";
-    private String gameType = "";
-    public Player player;
+    public static String gameType = "";
+    public Player player = LogInController.player;
 
     @FXML
     public Button javaBasicQuiz;
@@ -91,6 +91,8 @@ public class GameChooseController implements Initializable {
 
     public void selectChallengeGame(ActionEvent actionEvent) throws IOException {
         gameType = "challenge";
+        Integer plScore = 0;
+        player.setPlayerScore(plScore);
         loadSceneToThirdStage("QuizSolving");
     }
 

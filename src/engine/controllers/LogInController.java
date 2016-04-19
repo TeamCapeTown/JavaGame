@@ -15,6 +15,7 @@ import java.util.ResourceBundle;
 import static engine.controllers.ScreenController.loadSceneToSecondaryStage;
 
 public class LogInController implements Initializable {
+    public static Player player;
 
     @FXML
     public Button logInButton;
@@ -31,10 +32,10 @@ public class LogInController implements Initializable {
     }
 
     public void logIn(ActionEvent actionEvent) {
+        UserLogger logger = new UserLogger();
+        player = logger.logIn(userNameField.getText(),userPasswordField.getText());
+        player.setPlayerScore(logger.PlayerScore(player.getName()));
         try {
-            UserLogger logger = new UserLogger();
-            Player player = logger.logIn(userNameField.getText(),userPasswordField.getText());
-            player.setPlayerScore(logger.PlayerScore(player.getName()));
             loadSceneToSecondaryStage("GameChoose");
         } catch (IOException e) {
             System.out.println("Exception from loadSceneToSecondary");
@@ -42,9 +43,9 @@ public class LogInController implements Initializable {
     }
 
     public void signUp(ActionEvent actionEvent) {
+        UserLogger logger = new UserLogger();
+        player = logger.signUp(userNameField.getText(),userPasswordField.getText());
         try {
-            UserLogger logger = new UserLogger();
-            Player player = logger.signUp(userNameField.getText(),userPasswordField.getText());
             loadSceneToSecondaryStage("GameChoose");
         } catch (IOException e) {
             System.out.println("Exception from loadSceneToSecondary");

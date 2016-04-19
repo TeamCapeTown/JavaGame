@@ -22,7 +22,7 @@ public class QuestionCatalogIO {
         return quiz;
     }
 
-    public void writeQuiz(Question que) {
+    public static void writeQuiz(Question que) {
         String question = que.getQUESTION() + "|" + que.getANSWERS().get(0) + "|" + que.getANSWERS().get(1) + "|" +
                 que.getANSWERS().get(2) + "|" + que.getANSWERS().get(3) + "|" + que.getCorrectAnswer();
         try (PrintWriter writer = new PrintWriter(new FileWriter("res/Questions/" + GameChooseController.getQuizChoose() + ".txt", true))) {

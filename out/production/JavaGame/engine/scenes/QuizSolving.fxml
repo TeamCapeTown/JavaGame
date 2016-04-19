@@ -19,12 +19,12 @@
             </ImageInput>
          </effect>
       </Label>
-      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#fffcfc66" height="400.0" layoutX="22.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="980.0" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#fffcfc66" height="350.0" layoutX="78.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" width="900.0" />
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#fffcfc66" height="120.0" layoutX="33.0" layoutY="460.0" stroke="BLACK" strokeType="INSIDE" width="460.0" />
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#fffcfc66" height="120.0" layoutX="531.0" layoutY="461.0" stroke="BLACK" strokeType="INSIDE" width="460.0" />
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#fffcfc66" height="120.0" layoutX="33.0" layoutY="603.0" stroke="BLACK" strokeType="INSIDE" width="460.0" />
       <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#fffcfc66" height="120.0" layoutX="531.0" layoutY="603.0" stroke="BLACK" strokeType="INSIDE" width="460.0" />
-      <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="14.0" prefHeight="400.0" prefWidth="965.0" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="44.0" prefHeight="350.0" prefWidth="900.0" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="20.0" />
          </font></Label>
@@ -48,15 +48,15 @@
          <font>
             <Font name="Arial Black" size="17.0" />
          </font></Button>
-      <Button fx:id="answerBButton" layoutX="33.0" layoutY="603.0" mnemonicParsing="false" onAction="#chooseAnswerHandler" prefHeight="120.0" prefWidth="460.0" style="-fx-background-color: transparent;" textFill="WHITE">
+      <Button fx:id="answerBButton" contentDisplay="CENTER" layoutX="33.0" layoutY="603.0" mnemonicParsing="false" onAction="#chooseAnswerHandler" prefHeight="120.0" prefWidth="460.0" style="-fx-background-color: transparent;" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="17.0" />
          </font></Button>
-      <Button fx:id="answerCButton" layoutX="531.0" layoutY="461.0" mnemonicParsing="false" onAction="#chooseAnswerHandler" prefHeight="120.0" prefWidth="460.0" style="-fx-background-color: transparent;" textFill="WHITE">
+      <Button fx:id="answerCButton" contentDisplay="CENTER" layoutX="531.0" layoutY="461.0" mnemonicParsing="false" onAction="#chooseAnswerHandler" prefHeight="120.0" prefWidth="460.0" style="-fx-background-color: transparent;" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="17.0" />
          </font></Button>
-      <Button fx:id="answerDButton" layoutX="531.0" layoutY="603.0" mnemonicParsing="false" onAction="#chooseAnswerHandler" prefHeight="120.0" prefWidth="460.0" style="-fx-background-color: transparent;" textFill="WHITE">
+      <Button fx:id="answerDButton" contentDisplay="CENTER" layoutX="531.0" layoutY="603.0" mnemonicParsing="false" onAction="#chooseAnswerHandler" prefHeight="120.0" prefWidth="460.0" style="-fx-background-color: transparent;" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="17.0" />
          </font></Button>
@@ -68,5 +68,10 @@
                </source>
             </ImageInput>
          </effect></Button>
+      <Label fx:id="scoresLabel" layoutX="33.0" layoutY="394.0" prefHeight="58.0" prefWidth="264.0" textFill="WHITE" visible="false">
+         <font>
+            <Font name="Arial Black" size="18.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

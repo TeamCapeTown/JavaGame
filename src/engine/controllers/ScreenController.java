@@ -13,9 +13,11 @@ public class ScreenController {
     public static Stage primaryStage;
     public static Stage secondaryStage;
     public static Stage thirdStage;
+    public static Stage bonusStage;
     public static AnchorPane root;
     private static Pane gameChooseScene;
     private static Pane quizScene;
+    private static Pane bonusScene;
 
     public static void setPrimaryStage(Stage primaryStage) throws IOException {
         primaryStage.setTitle(Main.TITLE);
@@ -76,6 +78,26 @@ public class ScreenController {
         }
 
         thirdStage.show();
+        return fxmlLoader.<T>getController();
+    }
+
+    public static <T> T loadSceneToBonusStage(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("scenes/" + fxml + ".fxml"));
+
+        if (bonusStage == null) {
+            bonusStage = new Stage();
+        }
+        try {
+            bonusScene = FXMLLoader.load(Main.class.getResource("scenes/BonusLevel.fxml"));
+            bonusStage.setScene(new Scene(quizScene));
+            bonusStage.setTitle(Main.TITLE);
+            bonusStage.setResizable(false);
+            thirdStage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        bonusStage.show();
         return fxmlLoader.<T>getController();
     }
 

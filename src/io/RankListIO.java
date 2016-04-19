@@ -1,17 +1,34 @@
 package io;
 
+import java.io.*;
 import java.util.TreeMap;
 
 public class RankListIO {
 
     public static TreeMap<String, Integer> LoadRankList() {
-
-        // TODO: 13.04.2016 г. Read from file RankList TreeMap
-        return null;
+        TreeMap<String, Integer> list = new TreeMap<>();
+        try (ObjectInputStream objReader = new ObjectInputStream(new FileInputStream("res/Players/RankList.list"))){
+            list = (TreeMap<String, Integer>) objReader.readObject();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
     public static void WriteRankList(TreeMap<String, Integer> listOfPlayers) {
-        //// TODO: 13.04.2016 г. Write To File Rank List TreeMap
+        TreeMap<String, Integer> LOP = listOfPlayers;
+        try (ObjectOutputStream objWriter = new ObjectOutputStream(new FileOutputStream("res/Players/RankList.list"))) {
+            objWriter.writeObject(LOP);
+            objWriter.flush();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

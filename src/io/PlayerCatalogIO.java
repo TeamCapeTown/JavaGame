@@ -55,6 +55,20 @@ public class PlayerCatalogIO {
         }
         return player;
     }
+    public static void savePlayer(Player player) {
+        String name = player.getName();
+        String password = player.getPassword();
+        int score = player.getPlayerScore();
+        String newPlayer = (name + "|" + password + "|" + score);
+
+        try {
+            BufferedWriter playerWriter = new BufferedWriter(new FileWriter("res/Players/PlayersCatalog.txt"));
+            playerWriter.write(newPlayer + "\r\n");
+            playerWriter.close();
+
+        } catch (IOException ioe) {
+        }
+    }
 }
 
 

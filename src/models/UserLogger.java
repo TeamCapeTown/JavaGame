@@ -15,7 +15,7 @@ public class UserLogger {
     public static Player logIn(String name, String password) {
         return playersCatalog.getExistingPlayer(name, password);
     }
-    public static int PlayerScore(String name) {
+    public static Integer PlayerScore(String name) {
         return playersCatalog.getPlayerScores(name);
     }
 
