@@ -3,73 +3,21 @@ package io;
 import engine.controllers.GameChooseController;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 public class QuestionCatalogIO {
 
-    public void addQuestion() {
-
-        String question ="";
-        String answerOne ="";
-        String answerTwo ="";
-        String answerThree ="";
-        String answerFour="";
-        String correctAnswer ="";
-    String newQuestion = (question + "|" + answerOne + "|" + answerTwo + "|" + answerThree+ "|" + answerFour + "|" + correctAnswer +"\r\n");
-    try {
-        BufferedWriter questionWriter = new BufferedWriter(new FileWriter("res/Questions/" + GameChooseController.getQuizChoose() + ".txt", true));
-        questionWriter.write(newQuestion + "\n");
-    } catch (IOException ioe){
-        System.out.print("The horror!");
-    }
-
-}
-
-    public String[] QuestionInfo() {
-        String[] thisQuestion = new String[6];
-
+    public List<String[]> readQuiz()  {
+        List<String[]> quiz = new ArrayList<>();
         try {
-            BufferedReader questionInfoReader = new BufferedReader(new FileReader("res/Questions/" + GameChooseController.getQuizChoose() + ".txt"));
-            thisQuestion = (questionInfoReader.readLine()).split("\\|");
-
-        } catch (IOException ioe) {
-            System.out.println("Register some questions first dumbass. ಠ_ಠ");
-        }
-
-        return thisQuestion;
-    }
-
-    public List<String> getQuestions() {
-        List<String> questions = new ArrayList<String>();
-        try {
-            double count = Files.lines(Paths.get("res/Questions/" + GameChooseController.getQuizChoose() + ".txt")).count();
-            for (int i = 0; i < count; i++) {
-                questions.add(QuestionInfo()[0]);
+            BufferedReader reader = new BufferedReader(new FileReader("res/Questions/" + GameChooseController.getQuizChoose() + ".txt"));
+            String[] line;
+            while (!(line = reader.readLine().split("\\|")).equals(null)) {
+                quiz.add(line);
             }
-
-        } catch (IOException ioe) {
-            System.out.println("Register some questions first dumbass. ಠ_ಠ");
-
+        } catch (Exception e) {
         }
-        return questions;
+        return quiz;
     }
-
-    public List<String> getCorrectAnswers() {
-        List<String> correctAnswers = new ArrayList<String>();
-        try {
-            double count = Files.lines(Paths.get("res/Questions/" + GameChooseController.getQuizChoose() + ".txt")).count();
-            for (int i = 0; i < count; i++) {
-                correctAnswers.add(QuestionInfo()[5]);
-            }
-
-        } catch (IOException ioe) {
-            System.out.println("Register some questions first dumbass. ಠ_ಠ");
-
-        }
-        return correctAnswers;
-    }
-
 }

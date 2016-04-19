@@ -1,5 +1,6 @@
 package engine.controllers;
 
+import io.QuestionCatalogIO;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -8,9 +9,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
-import models.Game;
 import models.Question;
+import models.QuestionsCatalog;
 
+import javax.swing.text.Style;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,8 +21,10 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class GameController implements Initializable {
-    private final Game game;
     private boolean isAnswerChoosen;
+    private Question que;
+    private QuestionsCatalog catalog;
+    private boolean isNextQuestion = true;
 
     @FXML
     public Button startButton;
@@ -49,44 +54,46 @@ public class GameController implements Initializable {
 
     }
 
-    public GameController() {
-        game = new Game();
-    }
-
     @FXML
     public void chooseAnswerHandler(ActionEvent event) {
-       /* if (!game.isFinished() && !isAnswerChoosen) {
-            Question question = game.getCurrentQuestion();
-
-            boolean isRight = game.chooseAnswer(((Button) event.getSource()).getText());
+        if (isNextQuestion && !isAnswerChoosen) {
+            String buttonStl = answerAButton.getStyle();
+            String buttonAnswerText = ((Button) event.getSource()).getText();
+            boolean isRight = que.checkCorrectAnswer(buttonAnswerText);
             isAnswerChoosen = true;
 
             for (Button answerButton : answerButtons) {
-                if (question.CheckCorrectAnswer(answerButton.getText()))
+                String answers = answerButton.getText();
+                if (que.checkCorrectAnswer(answers)) {
                     answerButton.setStyle("-fx-background-color:#7fff00");
+                }
             }
-            if (!isRight)
-                ((Button) event.getSource()).setStyle("-fx-background-color:#dc143c");*/
-        ((Button) event.getSource()).setStyle("-fx-background-color:#dc143c");//TODO delete this
-        for (Button answerButton : answerButtons) {
-            answerButton.setStyle("-fx-background-color:#7fff00");//TODO only for check
-        }
+            if (!isRight) {
+                ((Button) event.getSource()).setStyle("-fx-background-color:#dc143c");
+            }
+
             Timeline timeline = new Timeline(new KeyFrame(
-                    Duration.millis(2500),
+                    Duration.millis(2000),
                     e -> {
                         for (Button answerButton : answerButtons) {
-                            answerButton.setStyle("");
+                            answerButton.setStyle(buttonStl);
                         }
                         isAnswerChoosen = false;
-
-                        if (game.isFinished()) {
+                        if (!isNextQuestion) {
                             disableAnswerButtons(true);
+                        }
+                        try {
+                            catalog.nextQuestion();
+                            que.nextQuestion(catalog);
+                            setNewQuestion(que);
+                        } catch (Exception ex) {
+                            isNextQuestion = false;
                         }
                     }));
             timeline.play();
         }
 
-    //}
+    }
 
     private void disableAnswerButtons(boolean value) {
         for (Button answerButton : answerButtons) {
@@ -94,21 +101,21 @@ public class GameController implements Initializable {
         }
     }
 
-    public void startGame(ActionEvent actionEvent) throws InterruptedException {
+    public void startGame(ActionEvent actionEvent) throws InterruptedException, IOException {
         startButton.setVisible(false);
-        Question question = new Question();
-        this.question.setText(question.getQUESTION());
-
-        Collections.shuffle(answerButtons);
-        answerButtons.get(0).setText("Proba");
-        answerButtons.get(1).setText("Proba1");
-        answerButtons.get(2).setText("Proba2");
-        answerButtons.get(3).setText("Proba3");
+        QuestionCatalogIO IO = new QuestionCatalogIO();
+        catalog = new QuestionsCatalog(IO);
+        que = new Question(catalog);
+        catalog.nextQuestion();
+        setNewQuestion(que);
     }
 
-    /*public void isPressed(ActionEvent actionEvent) {
-        question.setText("NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS NOV VUPROS ");
-        question.setTextAlignment(TextAlignment.CENTER);
-        question.wrapTextProperty().setValue(true);
-    }*/
+    private void setNewQuestion(Question que) {
+        question.setText(que.getQUESTION());
+        Collections.shuffle(answerButtons);
+        answerButtons.get(0).setText(que.getANSWERS().get(0));
+        answerButtons.get(1).setText(que.getANSWERS().get(1));
+        answerButtons.get(2).setText(que.getANSWERS().get(2));
+        answerButtons.get(3).setText(que.getANSWERS().get(3));
+    }
 }

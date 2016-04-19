@@ -83,7 +83,4 @@ public class ScreenController {
     public static void showLogin() {
         loadSceneToPrimaryStage("LoginScreen");
     }
-    public static void showGame() throws IOException {
-        GameController gameController = loadSceneToThirdStage("QuizSolving");
-    }
 }

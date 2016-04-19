@@ -1,31 +1,66 @@
 package models;
 
-import java.util.*;
+import io.QuestionCatalogIO;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class QuestionsCatalog {
+    private String Question;
+    private List<String> Answers;
+    private String correctAnswer;
+    private int questionCount = 0;
 
-    private  Map<String, List<Question>> catalog;
-    private String Category;
+    public List<String> getAnswers() {
 
-    public QuestionsCatalog() {
-        catalog = new HashMap<>();//да се покаже от къде ще се взема въпросите
-    }
-    public String Category(){
-        return this.Category;
-    }
-    public void addQuestion(String category, Question question) {
-        if (catalog.containsKey(category)) {
-            catalog.get(category).add(question);
-        } else {
-            List<Question> questions = new ArrayList<>();
-            questions.add(question);
-            catalog.put(category, questions);
-        }
+        return Answers;
     }
 
-    public Question getRandomQuestion(String category) { //произволно изтеглен въпрос от дадена категория
-        Random random = new Random();
-        return (Question)catalog.remove(random.nextInt(catalog.size()));
+    public void setAnswers(List<String> answers) {
+        Answers = answers;
+    }
+
+    public String getCorrectAnswer() {
+        return correctAnswer;
+    }
+
+    public void setCorrectAnswer(String correctAnswer) {
+        this.correctAnswer = correctAnswer;
+    }
+
+    public String getQuestion() {
+        return Question;
+    }
+
+    public void setQuestion(String question) {
+        Question = question;
+    }
+
+    private List<String[]> catalog;
+
+    public QuestionsCatalog(QuestionCatalogIO catalogIO) throws IOException {
+        catalog = catalogIO.readQuiz();
+        setQuestion(catalog.get(0)[0]);
+        List<String> answ = new ArrayList<>();
+        answ.add(catalog.get(0)[1]);
+        answ.add(catalog.get(0)[2]);
+        answ.add(catalog.get(0)[3]);
+        answ.add(catalog.get(0)[4]);
+        setAnswers(answ);
+        setCorrectAnswer(catalog.get(0)[5]);
+    }
+
+    public void nextQuestion() {
+        setQuestion(catalog.get(questionCount)[0]);
+        List<String> answ = new ArrayList<>();
+        answ.add(catalog.get(questionCount)[1]);
+        answ.add(catalog.get(questionCount)[2]);
+        answ.add(catalog.get(questionCount)[3]);
+        answ.add(catalog.get(questionCount)[4]);
+        setAnswers(answ);
+        setCorrectAnswer(catalog.get(0)[5]);
+        questionCount++;
     }
 }
 

@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static engine.controllers.ScreenController.loadSceneToThirdStage;
+
 public class GameChooseController implements Initializable {
 
     public static String quizChoose = "";
@@ -88,12 +90,12 @@ public class GameChooseController implements Initializable {
 
     public void selectSingleGame(ActionEvent actionEvent) throws IOException {
         gameType = "single";
-        ScreenController.showGame();
+        loadSceneToThirdStage("QuizSolving");
     }
 
     public void selectChallengeGame(ActionEvent actionEvent) throws IOException {
         gameType = "challenge";
-        ScreenController.showGame();
+        loadSceneToThirdStage("QuizSolving");
     }
 
     enum QUESTION_FILE_NAME{
