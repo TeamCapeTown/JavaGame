@@ -1,5 +1,7 @@
 package io;
 
+import engine.controllers.GameChooseController;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -18,7 +20,7 @@ public class QuestionCatalogIO {
         String correctAnswer ="";
     String newQuestion = (question + "|" + answerOne + "|" + answerTwo + "|" + answerThree+ "|" + answerFour + "|" + correctAnswer +"\r\n");
     try {
-        BufferedWriter questionWriter = new BufferedWriter(new FileWriter("QuestionsCatalog.txt", true));
+        BufferedWriter questionWriter = new BufferedWriter(new FileWriter("res/Questions/" + GameChooseController.getQuizChoose() + ".txt", true));
         questionWriter.write(newQuestion + "\n");
     } catch (IOException ioe){
         System.out.print("The horror!");
@@ -30,7 +32,7 @@ public class QuestionCatalogIO {
         String[] thisQuestion = new String[6];
 
         try {
-            BufferedReader questionInfoReader = new BufferedReader(new FileReader("QuestionsCatalog.txt"));
+            BufferedReader questionInfoReader = new BufferedReader(new FileReader("res/Questions/" + GameChooseController.getQuizChoose() + ".txt"));
             thisQuestion = (questionInfoReader.readLine()).split("\\|");
 
         } catch (IOException ioe) {
@@ -43,7 +45,7 @@ public class QuestionCatalogIO {
     public List<String> getQuestions() {
         List<String> questions = new ArrayList<String>();
         try {
-            double count = Files.lines(Paths.get("QuestionsCatalog.txt")).count();
+            double count = Files.lines(Paths.get("res/Questions/" + GameChooseController.getQuizChoose() + ".txt")).count();
             for (int i = 0; i < count; i++) {
                 questions.add(QuestionInfo()[0]);
             }
@@ -58,7 +60,7 @@ public class QuestionCatalogIO {
     public List<String> getCorrectAnswers() {
         List<String> correctAnswers = new ArrayList<String>();
         try {
-            double count = Files.lines(Paths.get("QuestionsCatalog.txt")).count();
+            double count = Files.lines(Paths.get("res/Questions/" + GameChooseController.getQuizChoose() + ".txt")).count();
             for (int i = 0; i < count; i++) {
                 correctAnswers.add(QuestionInfo()[5]);
             }

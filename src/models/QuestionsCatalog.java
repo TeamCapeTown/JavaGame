@@ -1,9 +1,6 @@
 package models;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class QuestionsCatalog {
 
@@ -15,6 +12,15 @@ public class QuestionsCatalog {
     }
     public String Category(){
         return this.Category;
+    }
+    public void addQuestion(String category, Question question) {
+        if (catalog.containsKey(category)) {
+            catalog.get(category).add(question);
+        } else {
+            List<Question> questions = new ArrayList<>();
+            questions.add(question);
+            catalog.put(category, questions);
+        }
     }
 
     public Question getRandomQuestion(String category) { //произволно изтеглен въпрос от дадена категория

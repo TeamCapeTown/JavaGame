@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 
 public class GameChooseController implements Initializable {
 
-    private String quizChoose = "";
+    public static String quizChoose = "";
     private String gameType = "";
     public Player player;
 
@@ -46,7 +46,7 @@ public class GameChooseController implements Initializable {
 
     public void basicChoose(ActionEvent actionEvent) throws IOException {
         //loadSceneToThirdStage("GameMode");
-        quizChoose = "basic";
+        quizChoose = QUESTION_FILE_NAME.JAVA_BASIC_QUIZ.toString();
         selectQuiz.setVisible(false);
         gameModeButtons.setVisible(true);
         backLabel.setVisible(true);
@@ -54,7 +54,7 @@ public class GameChooseController implements Initializable {
 
     public void arrayChoose(ActionEvent actionEvent) throws IOException {
         //loadSceneToThirdStage("GameMode");
-        quizChoose = "array";
+        quizChoose = QUESTION_FILE_NAME.JAVA_ARRAY_QUIZ.toString();
         selectQuiz.setVisible(false);
         gameModeButtons.setVisible(true);
         backLabel.setVisible(true);
@@ -62,15 +62,19 @@ public class GameChooseController implements Initializable {
 
     public void collectionChoose(ActionEvent actionEvent) throws IOException {
         //loadSceneToThirdStage("GameMode");
-        quizChoose = "collection";
+        quizChoose = QUESTION_FILE_NAME.COLLECTION_QUIZ.toString();
         selectQuiz.setVisible(false);
         gameModeButtons.setVisible(true);
         backLabel.setVisible(true);
     }
 
+    public static String getQuizChoose() {
+        return quizChoose;
+    }
+
     public void oopChoose(ActionEvent actionEvent) throws IOException {
         //loadSceneToThirdStage("GameMode");
-        quizChoose = "oop";
+        quizChoose = QUESTION_FILE_NAME.JAVA_OOP_QUIZ.toString();
         selectQuiz.setVisible(false);
         gameModeButtons.setVisible(true);
         backLabel.setVisible(true);
@@ -90,5 +94,12 @@ public class GameChooseController implements Initializable {
     public void selectChallengeGame(ActionEvent actionEvent) throws IOException {
         gameType = "challenge";
         ScreenController.showGame();
+    }
+
+    enum QUESTION_FILE_NAME{
+        JAVA_BASIC_QUIZ,
+        JAVA_ARRAY_QUIZ,
+        JAVA_OOP_QUIZ,
+        COLLECTION_QUIZ;
     }
 }

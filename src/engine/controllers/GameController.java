@@ -94,16 +94,16 @@ public class GameController implements Initializable {
         }
     }
 
-    public void Start(ActionEvent actionEvent) throws InterruptedException {
+    public void startGame(ActionEvent actionEvent) throws InterruptedException {
         startButton.setVisible(false);
-        Question qustion = new Question();
-        question.setText("TEEEEESSSSSTTTT"/*qustion.getQUESTION()*/);
+        Question question = new Question();
+        this.question.setText(question.getQUESTION());
 
         Collections.shuffle(answerButtons);
         answerButtons.get(0).setText("Proba");
-        answerButtons.get(1).setText("proba");
-        answerButtons.get(2).setText("proba");
-        answerButtons.get(3).setText("proba");
+        answerButtons.get(1).setText("Proba1");
+        answerButtons.get(2).setText("Proba2");
+        answerButtons.get(3).setText("Proba3");
     }
 
     /*public void isPressed(ActionEvent actionEvent) {

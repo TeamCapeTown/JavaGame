@@ -11,7 +11,7 @@ public class Main extends Application {
     public static int RIGHT_ANSWER_SCORE = 10;
     public static int WRONG_ANSWER_SCORE = -10;
     private static QuestionCatalogIO questionIO = new QuestionCatalogIO();
-    public static int NUM_QUESTIONS_PER_ROUND = questionIO.getQuestions().size();
+    public static int NUM_QUESTIONS_PER_ROUND = 5;//questionIO.getQuestions().size();
 
     @Override
     public void start(Stage primaryStage) throws Exception {

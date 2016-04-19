@@ -5,7 +5,7 @@ import java.util.List;
 public class Question {
     private String QUESTION;
     private List<String> ANSWERS;
-    private boolean CheckCorrectAnswer;
+    private boolean checkCorrectAnswer;
     private int correctAnswerIndex;
 
     public String getQUESTION() {
