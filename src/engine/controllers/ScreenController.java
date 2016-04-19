@@ -10,10 +10,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ScreenController {
-    private static Stage primaryStage;
-    private static Stage secondaryStage;
-    private static Stage thirdStage;
-    private static AnchorPane root;
+    public static Stage primaryStage;
+    public static Stage secondaryStage;
+    public static Stage thirdStage;
+    public static AnchorPane root;
     private static Pane gameChooseScene;
     private static Pane quizScene;
 

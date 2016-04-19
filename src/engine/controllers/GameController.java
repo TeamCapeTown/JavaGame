@@ -12,13 +12,14 @@ import javafx.util.Duration;
 import models.Question;
 import models.QuestionsCatalog;
 
-import javax.swing.text.Style;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import static engine.controllers.ScreenController.loadSceneToSecondaryStage;
 
 public class GameController implements Initializable {
     private boolean isAnswerChoosen;
@@ -72,24 +73,27 @@ public class GameController implements Initializable {
                 ((Button) event.getSource()).setStyle("-fx-background-color:#dc143c");
             }
 
-            Timeline timeline = new Timeline(new KeyFrame(
-                    Duration.millis(2000),
-                    e -> {
-                        for (Button answerButton : answerButtons) {
-                            answerButton.setStyle(buttonStl);
-                        }
-                        isAnswerChoosen = false;
-                        if (!isNextQuestion) {
-                            disableAnswerButtons(true);
-                        }
-                        try {
-                            catalog.nextQuestion();
-                            que.nextQuestion(catalog);
-                            setNewQuestion(que);
-                        } catch (Exception ex) {
-                            isNextQuestion = false;
-                        }
-                    }));
+            Timeline timeline = new Timeline(new KeyFrame(Duration.millis(2000), e -> {
+                for (Button answerButton : answerButtons) {
+                    answerButton.setStyle(buttonStl);
+                }
+                isAnswerChoosen = false;
+                if (!isNextQuestion) {
+                    disableAnswerButtons(true);
+                }
+                try {
+                    catalog.nextQuestion();
+                    que.nextQuestion(catalog);
+                    setNewQuestion(que);
+                } catch (Exception ex) {
+                    isNextQuestion = false;
+                    try {
+                        loadSceneToSecondaryStage("GameChoose");
+                        ScreenController.thirdStage.close();
+                    } catch (IOException e1) {
+                    }
+                }
+            }));
             timeline.play();
         }
 
@@ -98,6 +102,7 @@ public class GameController implements Initializable {
     private void disableAnswerButtons(boolean value) {
         for (Button answerButton : answerButtons) {
             answerButton.setDisable(value);
+            answerButton.setVisible(value);
         }
     }
 
@@ -112,10 +117,15 @@ public class GameController implements Initializable {
 
     private void setNewQuestion(Question que) {
         question.setText(que.getQUESTION());
+        question.setWrapText(true);
         Collections.shuffle(answerButtons);
         answerButtons.get(0).setText(que.getANSWERS().get(0));
+        answerButtons.get(0).setWrapText(true);
         answerButtons.get(1).setText(que.getANSWERS().get(1));
+        answerButtons.get(1).setWrapText(true);
         answerButtons.get(2).setText(que.getANSWERS().get(2));
+        answerButtons.get(2).setWrapText(true);
         answerButtons.get(3).setText(que.getANSWERS().get(3));
+        answerButtons.get(3).setWrapText(true);
     }
 }

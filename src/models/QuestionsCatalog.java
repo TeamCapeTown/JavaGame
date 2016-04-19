@@ -41,14 +41,14 @@ public class QuestionsCatalog {
 
     public QuestionsCatalog(QuestionCatalogIO catalogIO) throws IOException {
         catalog = catalogIO.readQuiz();
-        setQuestion(catalog.get(0)[0]);
+        setQuestion(catalog.get(questionCount)[0]);
         List<String> answ = new ArrayList<>();
-        answ.add(catalog.get(0)[1]);
-        answ.add(catalog.get(0)[2]);
-        answ.add(catalog.get(0)[3]);
-        answ.add(catalog.get(0)[4]);
+        answ.add(catalog.get(questionCount)[1]);
+        answ.add(catalog.get(questionCount)[2]);
+        answ.add(catalog.get(questionCount)[3]);
+        answ.add(catalog.get(questionCount)[4]);
         setAnswers(answ);
-        setCorrectAnswer(catalog.get(0)[5]);
+        setCorrectAnswer(catalog.get(questionCount)[5]);
     }
 
     public void nextQuestion() {
@@ -59,7 +59,7 @@ public class QuestionsCatalog {
         answ.add(catalog.get(questionCount)[3]);
         answ.add(catalog.get(questionCount)[4]);
         setAnswers(answ);
-        setCorrectAnswer(catalog.get(0)[5]);
+        setCorrectAnswer(catalog.get(questionCount)[5]);
         questionCount++;
     }
 }
