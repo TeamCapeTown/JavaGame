@@ -14,12 +14,13 @@ public class PlayersCatalog {
     }
 
     public Player addNewPlayer(String name, String password) {
-
+        Player player;
         if (playersCatalog.containsKey(name)) {
             throw new IllegalArgumentException("Player name must be unique");
+        }else {
+            player  = new Player(name, password);
+            PlayerCatalogIO.addPlayer(player);
         }
-
-        Player player = new Player(name, password);
         return player;
     }
 
@@ -35,6 +36,11 @@ public class PlayersCatalog {
 
         Player player = new Player(name, password);
         return player;
+    }
+    public int getPlayerScores(String playerName){
+        TreeMap<String,Integer> playerScore = PlayerCatalogIO.loadPlayerScores();
+        int playerScores = playerScore.get(playerName);
+        return playerScores;
     }
 }
 

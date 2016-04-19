@@ -4,25 +4,18 @@ package io;
 import models.Player;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.TreeMap;
 
 public class PlayerCatalogIO {
 
-    public void addPlayer() {
-
-        Player player = new Player("", "");
-
+    public static void addPlayer(Player player) {
         String name = player.getName();
         String password = player.getPassword();
         String score = "0";
         String newPlayer = (name + "|" + password + "|" + score);
 
         try {
-            BufferedWriter playerWriter = new BufferedWriter(new FileWriter("PlayersCatalog.txt", true));
+            BufferedWriter playerWriter = new BufferedWriter(new FileWriter("res/Players/PlayersCatalog.txt", true));
             playerWriter.write(newPlayer + "\r\n");
             playerWriter.close();
 
@@ -31,66 +24,36 @@ public class PlayerCatalogIO {
         }
     }
 
-    public String[] PlayerInfo() {
-        String[] thisPlayer = new String[3];
-
+    public static TreeMap<String, String> PlayerLoads() {
+        String[] playerCatalog;
+        TreeMap<String, String> player = new TreeMap<>();
         try {
-            BufferedReader playerInfoReader = new BufferedReader(new FileReader("PlayersCatalog.txt"));
-            thisPlayer = (playerInfoReader.readLine()).split("\\|");
+            BufferedReader reader = new BufferedReader(new FileReader("res/Players/PlayersCatalog.txt"));
 
-        } catch (IOException ioe) {
-            System.out.println("Register first dumbass. ಠ_ಠ");
-        }
-
-        return thisPlayer;
-    }
-
-    public List<String> getNames() {
-        List<String> playerNames = new ArrayList<String>();
-        try {
-            double count = Files.lines(Paths.get("PlayersCatalog.txt")).count();
-            for (int i = 0; i < count; i++) {
-                playerNames.add(PlayerInfo()[0]);
+            while (!(playerCatalog = reader.readLine().split("\\|")).equals(null)) {
+                player.put(playerCatalog[0],playerCatalog[1]);
             }
-
-        } catch (IOException ioe) {
-            System.out.println("Register first dumbass. ಠ_ಠ");
+        } catch (Exception e) {
         }
-        return playerNames;
-    }
-
-    public List<String> getPasswords() {
-        List<String> playerPasswords = new ArrayList<String>();
-        try {
-            double count = Files.lines(Paths.get("PlayersCatalog.txt")).count();
-            for (int i = 0; i < count; i++) {
-                playerPasswords.add(PlayerInfo()[1]);
-            }
-
-        } catch (IOException ioe) {
-            System.out.println("Register first dumbass. ಠ_ಠ");
-
-        }
-        return playerPasswords;
-    }
-
-    public List<String> getScores() {
-        List<String> playerScores = new ArrayList<String>();
-        try {
-            double count = Files.lines(Paths.get("PlayersCatalog.txt")).count();
-            for (int i = 0; i < count; i++) {
-                playerScores.add(PlayerInfo()[2]);
-            }
-
-        } catch (IOException ioe) {
-            System.out.println("Register first dumbass. ಠ_ಠ");
-
-        }
-        return playerScores;
+        return player;
     }
 
     public static TreeMap<String, String> LoadPlayers() {
-        return null;
+        TreeMap<String,String> player = PlayerLoads();
+        return player;
+    }
+    public static TreeMap<String,Integer> loadPlayerScores(){
+        String[] playerData;
+        TreeMap<String, Integer> player = new TreeMap<>();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("res/Players/PlayersCatalog.txt"));
+
+            while (!(playerData = reader.readLine().split("\\|")).equals(null)) {
+                player.put(playerData[0],Integer.parseInt(playerData[2]));
+            }
+        } catch (Exception e) {
+        }
+        return player;
     }
 }
 

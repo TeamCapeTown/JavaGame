@@ -8,6 +8,16 @@ public class Player {
     private String Name;
     private String Password;
 
+    public int getPlayerScore() {
+        return PlayerScore;
+    }
+
+    public void setPlayerScore(int playerScore) {
+        PlayerScore = playerScore;
+    }
+
+    private int PlayerScore;
+
     public Player(String name, String password) {
         this.setName(name);
         this.setPassword(password);
@@ -35,10 +45,6 @@ public class Player {
         if (password.isEmpty()) {
             throw new IllegalArgumentException("Password must be more than 0 symbols");
         }
-
-//        if (!hasSpecialCharacter(password)) {
-//            throw new IllegalArgumentException("Password must be contain special character");
-//        }
 
         this.Password = password;
     }

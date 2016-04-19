@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Question {
@@ -36,6 +37,29 @@ public class Question {
             return true;
         }
         return false;
+    }
+
+    public Question(String question, String answerOne,String answerTwo,String answerThree,String answerFour,String theCorrectAnswer){
+        setQuestion(question);
+        List<String> newQuestionAnswers = new ArrayList<>();
+        newQuestionAnswers.add(answerOne);
+        newQuestionAnswers.add(answerTwo);
+        newQuestionAnswers.add(answerThree);
+        newQuestionAnswers.add(answerFour);
+        setAnswers(newQuestionAnswers);
+        setCorrectAnswer(theCorrectAnswer);
+    }
+
+    public void setQuestion(String question) {
+        this.QUESTION = question;
+    }
+
+    public void setAnswers(List<String> answers) {
+        this.ANSWERS = answers;
+    }
+
+    public void setCorrectAnswer(String correctAnswer) {
+        this.correctAnswer = correctAnswer;
     }
 }
 

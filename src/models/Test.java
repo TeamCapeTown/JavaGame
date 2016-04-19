@@ -7,11 +7,11 @@ public class Test {
 
         try {
 
-            Logger logger = new Logger();
+            UserLogger logger = new UserLogger();
 
-            Player atanas = logger.signIn("Atanas", "asdsddddddddd#_$");
+            Player atanas = logger.signUp("Atanas", "asdsddddddddd#_$");
             Player pesho = logger.logIn("Pesho", "asdsddddddddd#_$");
-            Player haralampi = logger.signIn("Haralampi", "asdsddddddddd#_$");
+            Player haralampi = logger.signUp("Haralampi", "asdsddddddddd#_$");
 
             RankList rankList = new RankList();
             rankList.addScorePoint(atanas);

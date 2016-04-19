@@ -1,0 +1,2 @@
+Ivan|Ivan|0
+admin|admin|0

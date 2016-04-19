@@ -47,7 +47,6 @@ public class GameChooseController implements Initializable {
     }
 
     public void basicChoose(ActionEvent actionEvent) throws IOException {
-        //loadSceneToThirdStage("GameMode");
         quizChoose = QUESTION_FILE_NAME.JAVA_BASIC_QUIZ.toString();
         selectQuiz.setVisible(false);
         gameModeButtons.setVisible(true);
@@ -55,7 +54,6 @@ public class GameChooseController implements Initializable {
     }
 
     public void arrayChoose(ActionEvent actionEvent) throws IOException {
-        //loadSceneToThirdStage("GameMode");
         quizChoose = QUESTION_FILE_NAME.JAVA_ARRAY_QUIZ.toString();
         selectQuiz.setVisible(false);
         gameModeButtons.setVisible(true);
@@ -63,7 +61,6 @@ public class GameChooseController implements Initializable {
     }
 
     public void collectionChoose(ActionEvent actionEvent) throws IOException {
-        //loadSceneToThirdStage("GameMode");
         quizChoose = QUESTION_FILE_NAME.COLLECTION_QUIZ.toString();
         selectQuiz.setVisible(false);
         gameModeButtons.setVisible(true);
@@ -75,7 +72,6 @@ public class GameChooseController implements Initializable {
     }
 
     public void oopChoose(ActionEvent actionEvent) throws IOException {
-        //loadSceneToThirdStage("GameMode");
         quizChoose = QUESTION_FILE_NAME.JAVA_OOP_QUIZ.toString();
         selectQuiz.setVisible(false);
         gameModeButtons.setVisible(true);
