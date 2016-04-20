@@ -49,6 +49,7 @@ public class QuestionsCatalog {
         answ.add(catalog.get(questionCount)[4]);
         setAnswers(answ);
         setCorrectAnswer(catalog.get(questionCount)[5]);
+
     }
 
     public void nextQuestion() {

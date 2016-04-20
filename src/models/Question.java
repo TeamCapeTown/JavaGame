@@ -32,7 +32,7 @@ public class Question {
         correctAnswer = catalog.getCorrectAnswer();
     }
 
-    public boolean checkCorrectAnswer(String answer) { //проверява дали избрания стринг отговаря на текста от последната позиция в листата с отговорите
+    public boolean checkCorrectAnswer(String answer) {
         if (answer.equals(getCorrectAnswer())) {
             return true;
         }

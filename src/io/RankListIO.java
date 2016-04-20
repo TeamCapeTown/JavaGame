@@ -3,6 +3,8 @@ package io;
 import java.io.*;
 import java.util.TreeMap;
 
+import static engine.controllers.ExceptionHandling.warningDisplay;
+
 public class RankListIO {
 
     public static TreeMap<String, Integer> LoadRankList() {
@@ -10,11 +12,11 @@ public class RankListIO {
         try (ObjectInputStream objReader = new ObjectInputStream(new FileInputStream("res/Players/RankList.list"))){
             list = (TreeMap<String, Integer>) objReader.readObject();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            warningDisplay("RankList file not found");
         } catch (IOException e) {
-            e.printStackTrace();
+            warningDisplay("Cannot load RankList data! Please check for missing .list files");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            warningDisplay("RankList file not found! ClassNotFoundException");
         }
         return list;
     }
@@ -25,9 +27,9 @@ public class RankListIO {
             objWriter.writeObject(LOP);
             objWriter.flush();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            warningDisplay("RankList file not found! Cannot write the data");
         } catch (IOException e) {
-            e.printStackTrace();
+            warningDisplay("Cannot save RankList data! Please check for missing .list files");
         }
     }
 }

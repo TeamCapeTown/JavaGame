@@ -15,11 +15,11 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="engine.controllers.GameChooseController">
    <children>
-      <Label layoutX="-10.0" layoutY="-6.0" prefHeight="859.0" prefWidth="1049.0">
+      <Label layoutX="-12.0" prefHeight="859.0" prefWidth="1049.0">
          <effect>
             <ImageInput>
                <source>
-                  <Image url="file:/E:/JavaGameCapeTown/JavaGame/res/PictureRes/Background/images.jpg" />
+                  <Image url="file:res/PictureRes/Background/images.jpg" />
                </source>
             </ImageInput>
          </effect>
@@ -117,7 +117,7 @@
          <effect>
             <ImageInput>
                <source>
-                  <Image url="file:/E:/JavaGameCapeTown/JavaGame/res/PictureRes/Png%60s/BackButtonResize.png" />
+                  <Image url="file:res/PictureRes/Png%60s/BackButtonResize.png" />
                </source>
             </ImageInput>
          </effect>
@@ -165,10 +165,24 @@
          <effect>
             <ImageInput>
                <source>
-                  <Image url="file:/E:/JavaGameCapeTown/JavaGame/res/PictureRes/Png%60s/java-logo.png" />
+                  <Image url="file:res/PictureRes/Png%60s/java-logo.png" />
                </source>
             </ImageInput>
          </effect>
       </Label>
+      <Button fx:id="rankList" layoutX="412.0" layoutY="614.0" mnemonicParsing="false" onAction="#rankListPressed" style="-fx-background-color: transparent;" text="Rank LIst" visible="false">
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.32524271844660196" startX="1.0" startY="1.0">
+               <stops>
+                  <Stop color="WHITE" />
+                  <Stop color="WHITE" offset="0.007246376811594203" />
+                  <Stop color="#e40303" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

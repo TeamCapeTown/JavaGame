@@ -19,8 +19,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-import static engine.controllers.ScreenController.loadSceneToBonusStage;
-import static engine.controllers.ScreenController.loadSceneToSecondaryStage;
+import static engine.controllers.ExceptionHandling.*;
+import static engine.controllers.ScreenController.*;
 
 public class GameController implements Initializable {
     private boolean isAnswerChosen;
@@ -100,11 +100,13 @@ public class GameController implements Initializable {
                         setNewQuestion(que);
                     } catch (Exception ex) {
                         isNextQuestion = false;
-                        try {
-                            loadSceneToSecondaryStage("GameChoose");
-                            ScreenController.thirdStage.close();
-                            PlayerCatalogIO.savePlayer(player);
-                        } catch (IOException e1) {
+                        PlayerCatalogIO.savePlayer(player);
+                        if (!isNextQuestion) {
+                            try {
+                                loadSceneToSecondaryStage("GameChoose");
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
                         }
                     }
                 }));
@@ -147,16 +149,29 @@ public class GameController implements Initializable {
                         setNewQuestion(que);
                     } catch (Exception ex) {
                         isNextQuestion = false;
-                        /*
-                            loadSceneToSecondaryStage("GameChoose");
-                            ScreenController.thirdStage.close();*/
+                        LOP.put(player.getName(), player.getPlayerScore());
                         RankListIO.WriteRankList(LOP);
                     }
                 }));
                 timeline.play();
             }
-            if (Integer.compare(player.getPlayerScore(), MAX_GAME_SCORE) == 0) {
-                loadSceneToBonusStage("BonusLevel");
+            if (Integer.compare(player.getPlayerScore(), MAX_GAME_SCORE) == 0 && !isNextQuestion) {
+                displayConfirm("CONGRATULATIONS", "Do you want to write a new Question?");
+                if (isConfirm()) {
+                    loadSceneToBonusStage("BonusLevel");
+                } else if (isCancel()) {
+                    loadSceneToSecondaryStage("GameChoose");
+                }
+            } else if (Integer.compare(player.getPlayerScore(), MAX_GAME_SCORE) == -1 && !isNextQuestion) {
+                try {
+                    displayConfirm("SORRY", "Do you want to continue");
+                    if (isConfirm()) {
+                        loadSceneToSecondaryStage("GameChoose");
+                    } else if (isCancel()) {
+                        closeStage(thirdStage);
+                    }
+                } catch (IOException e1) {
+                }
             }
         }
     }
@@ -178,7 +193,7 @@ public class GameController implements Initializable {
     }
 
     private void setNewQuestion(Question que) {
-        if (GameChooseController.gameType.equals("challenge")){
+        if (GameChooseController.gameType.equals("challenge")) {
             scoresLabel.setVisible(true);
             scoresLabel.setText("Scores To BonusLevel: " + Math.abs(MAX_GAME_SCORE - player.getPlayerScore()));
         }

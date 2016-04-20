@@ -14,7 +14,7 @@
          <effect>
             <ImageInput>
                <source>
-                  <Image url="file:/E:/JavaGameCapeTown/JavaGame/res/PictureRes/Background/images.jpg" />
+                  <Image url="file:res/PictureRes/Background/images.jpg" />
                </source>
             </ImageInput>
          </effect>
@@ -64,7 +64,7 @@
          <effect>
             <ImageInput>
                <source>
-                  <Image url="file:/E:/JavaGameCapeTown/JavaGame/res/PictureRes/Png%60s/PLayGame.png" />
+                  <Image url="file:res/PictureRes/Png%60s/PLayGame.png" />
                </source>
             </ImageInput>
          </effect></Button>

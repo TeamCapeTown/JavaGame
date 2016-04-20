@@ -41,6 +41,9 @@ public class GameChooseController implements Initializable {
     @FXML
     public Button singleGame;
 
+    @FXML
+    public Button rankList;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -51,6 +54,7 @@ public class GameChooseController implements Initializable {
         selectQuiz.setVisible(false);
         gameModeButtons.setVisible(true);
         backLabel.setVisible(true);
+        rankList.setVisible(true);
     }
 
     public void arrayChoose(ActionEvent actionEvent) throws IOException {
@@ -58,6 +62,7 @@ public class GameChooseController implements Initializable {
         selectQuiz.setVisible(false);
         gameModeButtons.setVisible(true);
         backLabel.setVisible(true);
+        rankList.setVisible(true);
     }
 
     public void collectionChoose(ActionEvent actionEvent) throws IOException {
@@ -65,10 +70,7 @@ public class GameChooseController implements Initializable {
         selectQuiz.setVisible(false);
         gameModeButtons.setVisible(true);
         backLabel.setVisible(true);
-    }
-
-    public static String getQuizChoose() {
-        return quizChoose;
+        rankList.setVisible(true);
     }
 
     public void oopChoose(ActionEvent actionEvent) throws IOException {
@@ -76,6 +78,7 @@ public class GameChooseController implements Initializable {
         selectQuiz.setVisible(false);
         gameModeButtons.setVisible(true);
         backLabel.setVisible(true);
+        rankList.setVisible(true);
     }
 
     public void pressedBack(ActionEvent actionEvent) {
@@ -100,6 +103,12 @@ public class GameChooseController implements Initializable {
         JAVA_BASIC_QUIZ,
         JAVA_ARRAY_QUIZ,
         JAVA_OOP_QUIZ,
-        COLLECTION_QUIZ;
+        COLLECTION_QUIZ
+    }
+    public static String getQuizChoose() {
+        return quizChoose;
+    }
+    public void rankListPressed(ActionEvent event){
+        RankListController.display();
     }
 }

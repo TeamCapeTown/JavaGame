@@ -20,7 +20,7 @@
          <effect>
             <ImageInput>
                <source>
-                  <Image url="file:/E:/JavaGameCapeTown/JavaGame/res/PictureRes/Background/images.jpg" />
+                  <Image url="file:res/PictureRes/Background/images.jpg" />
                </source>
             </ImageInput>
          </effect>
@@ -172,11 +172,11 @@
             </Label>
          </children>
       </VBox>
-      <Label fx:id="setNewQuestion" layoutX="175.0" layoutY="112.0" prefHeight="113.0" prefWidth="113.0">
+      <Label layoutX="175.0" layoutY="112.0" prefHeight="113.0" prefWidth="113.0">
          <effect>
             <ImageInput>
                <source>
-                  <Image url="file:/E:/JavaGameCapeTown/JavaGame/res/PictureRes/Png%60s/java2.png" />
+                  <Image url="file:res/PictureRes/Png%60s/java2.png" />
                </source>
             </ImageInput>
          </effect>
@@ -189,7 +189,7 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Button layoutX="175.0" layoutY="109.0" mnemonicParsing="false" onAction="#addNewQuestion" prefHeight="152.0" prefWidth="113.0" style="-fx-background-color: transparent;">
+      <Button fx:id="newQuestion" layoutX="175.0" layoutY="109.0" mnemonicParsing="false" onAction="#addNewQuestion" prefHeight="152.0" prefWidth="113.0" style="-fx-background-color: transparent;">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
