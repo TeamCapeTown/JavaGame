@@ -6,3 +6,4 @@ Ivan|Ivan|80
 Ivan|Ivan|80
 Ivan|Ivan|100
 Ivan|Ivan|120
+Ivan|Ivan|170
