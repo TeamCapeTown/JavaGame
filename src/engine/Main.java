@@ -17,10 +17,10 @@ public class Main extends Application {
         ScreenController.setPrimaryStage(primaryStage);
         ScreenController.showLogin();
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            public void handle(WindowEvent we) {
+            public void handle(WindowEvent event) {
                 displayConfirm("EXIT","Do you want to exit?");
                 if (ExceptionHandling.isCancel()){
-                    we.consume();
+                    event.consume();
                 } else if (ExceptionHandling.isConfirm()){
                     primaryStage.close();
                 }

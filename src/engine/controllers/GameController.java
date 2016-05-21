@@ -29,7 +29,7 @@ public class GameController implements Initializable {
     private boolean isNextQuestion = true;
     private Player player = LogInController.player;
     private TreeMap<String, Integer> LOP = new TreeMap<>();
-    private static final Integer MAX_GAME_SCORE = 50;
+    private static Integer MAX_GAME_SCORE = 50;
 
     @FXML
     public Button startButton;
@@ -159,6 +159,7 @@ public class GameController implements Initializable {
                 displayConfirm("CONGRATULATIONS", "Do you want to write a new Question?");
                 if (isConfirm()) {
                     loadSceneToBonusStage("BonusLevel");
+                    MAX_GAME_SCORE +=10;
                 } else if (isCancel()) {
                     loadSceneToSecondaryStage("GameChoose");
                 }
